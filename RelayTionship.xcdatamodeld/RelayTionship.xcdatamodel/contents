@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1487" systemVersion="11E53" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="AppSettings" representedClassName="AppSettings" syncable="YES">
+        <attribute name="isTiming" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="selectedTab" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Leg" representedClassName="Leg" syncable="YES">
+        <attribute name="distance" attributeType="Float" minValueString="1" maxValueString="20" defaultValueString="5" syncable="YES"/>
+        <attribute name="number" attributeType="Integer 16" minValueString="1" maxValueString="36" defaultValueString="1" syncable="YES"/>
+        <relationship name="legTime" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="LegTime" inverseName="leg" inverseEntity="LegTime" syncable="YES"/>
+        <relationship name="runner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Runner" inverseName="legs" inverseEntity="Runner" syncable="YES"/>
+    </entity>
+    <entity name="LegTime" representedClassName="LegTime" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="mileageForProjection" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="projectedEndTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="secondsForProjection" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="leg" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Leg" inverseName="legTime" inverseEntity="Leg" syncable="YES"/>
+    </entity>
+    <entity name="Runner" representedClassName="Runner" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="legs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Leg" inverseName="runner" inverseEntity="Leg" syncable="YES"/>
+        <relationship name="van" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Van" inverseName="runners" inverseEntity="Van" syncable="YES"/>
+    </entity>
+    <entity name="Van" representedClassName="Van" syncable="YES">
+        <attribute name="number" attributeType="Integer 16" minValueString="1" maxValueString="2" defaultValueString="1" syncable="YES"/>
+        <relationship name="runners" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Runner" inverseName="van" inverseEntity="Runner" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="AppSettings" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Leg" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="LegTime" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="Runner" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Van" positionX="160" positionY="192" width="128" height="75"/>
+    </elements>
+</model>

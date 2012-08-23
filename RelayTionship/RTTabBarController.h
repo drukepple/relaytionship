@@ -1,5 +1,5 @@
 //
-//  RTAppDelegate.h
+//  RTTabBarController.h
 //  RelayTionship
 //
 //  Created by Dru Kepple on 8/18/12.
@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RTCoreDataAgent.h"
 
-
-@interface RTAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface RTTabBarController : UITabBarController <UITabBarControllerDelegate>
 
 @property (strong, nonatomic) RTCoreDataAgent *localStore;
 

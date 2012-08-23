@@ -12,15 +12,38 @@
 		715E70C315E3033F00E554B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70C215E3033F00E554B1 /* CoreGraphics.framework */; };
 		715E70C915E3034000E554B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 715E70C715E3034000E554B1 /* InfoPlist.strings */; };
 		715E70CB15E3034000E554B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E70CA15E3034000E554B1 /* main.m */; };
-		715E70CF15E3034000E554B1 /* RTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E70CE15E3034000E554B1 /* RTAppDelegate.m */; };
 		715E70D215E3034000E554B1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715E70D015E3034000E554B1 /* MainStoryboard_iPhone.storyboard */; };
 		715E70D515E3034000E554B1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 715E70D315E3034000E554B1 /* MainStoryboard_iPad.storyboard */; };
-		715E70D815E3034000E554B1 /* RTFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E70D715E3034000E554B1 /* RTFirstViewController.m */; };
 		715E70DA15E3034000E554B1 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 715E70D915E3034000E554B1 /* first.png */; };
 		715E70DC15E3034000E554B1 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 715E70DB15E3034000E554B1 /* first@2x.png */; };
 		715E70DF15E3034000E554B1 /* RTSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E70DE15E3034000E554B1 /* RTSecondViewController.m */; };
 		715E70E115E3034000E554B1 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 715E70E015E3034000E554B1 /* second.png */; };
 		715E70E315E3034000E554B1 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 715E70E215E3034000E554B1 /* second@2x.png */; };
+		715E710015E3041100E554B1 /* RTCoreDataAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E70FF15E3041100E554B1 /* RTCoreDataAgent.m */; };
+		715E710C15E304DF00E554B1 /* RTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E710B15E304DF00E554B1 /* RTAppDelegate.m */; };
+		715E710F15E3052B00E554B1 /* TKECoreDataAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E710E15E3052B00E554B1 /* TKECoreDataAgent.m */; };
+		715E711815E305B900E554B1 /* _AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E711115E305B900E554B1 /* _AppSettings.m */; };
+		715E711915E305B900E554B1 /* _Leg.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E711315E305B900E554B1 /* _Leg.m */; };
+		715E711A15E305B900E554B1 /* _Runner.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E711515E305B900E554B1 /* _Runner.m */; };
+		715E711B15E305B900E554B1 /* _Van.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E711715E305B900E554B1 /* _Van.m */; };
+		715E712415E3061100E554B1 /* AppSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E711D15E3061100E554B1 /* AppSettings.m */; };
+		715E712515E3061100E554B1 /* Leg.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E711F15E3061100E554B1 /* Leg.m */; };
+		715E712615E3061100E554B1 /* Runner.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E712115E3061100E554B1 /* Runner.m */; };
+		715E712715E3061100E554B1 /* Van.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E712315E3061100E554B1 /* Van.m */; };
+		715E712B15E3064A00E554B1 /* RTTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E712A15E3064A00E554B1 /* RTTabBarController.m */; };
+		715E713215E3065F00E554B1 /* RTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E712D15E3065F00E554B1 /* RTTableViewController.m */; };
+		715E713315E3065F00E554B1 /* RTTeamRosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E712F15E3065F00E554B1 /* RTTeamRosterViewController.m */; };
+		715E713415E3065F00E554B1 /* RTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E713115E3065F00E554B1 /* RTViewController.m */; };
+		715E713615E30E4E00E554B1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E713515E30E4E00E554B1 /* CoreData.framework */; };
+		715E713915E3BD8700E554B1 /* RelayTionship.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 715E713715E3BD8700E554B1 /* RelayTionship.xcdatamodeld */; };
+		715E713C15E3C02300E554B1 /* RTNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E713B15E3C02300E554B1 /* RTNavController.m */; };
+		715E714215E3CE5700E554B1 /* RTRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E714115E3CE5700E554B1 /* RTRunnerViewController.m */; };
+		715E714615E3EA0B00E554B1 /* RTLegsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E714515E3EA0B00E554B1 /* RTLegsViewController.m */; };
+		715E714A15E4363C00E554B1 /* RTLegDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E714915E4363C00E554B1 /* RTLegDetailsViewController.m */; };
+		715E714D15E5846000E554B1 /* RTTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E714C15E5845F00E554B1 /* RTTimerViewController.m */; };
+		715E715315E59EFB00E554B1 /* _LegTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E715015E59EFB00E554B1 /* _LegTime.m */; };
+		715E715415E59EFB00E554B1 /* LegTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E715215E59EFB00E554B1 /* LegTime.m */; };
+		715E715715E6AD6C00E554B1 /* RTRunnerPassedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E715615E6AD6C00E554B1 /* RTRunnerPassedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,18 +55,62 @@
 		715E70C815E3034000E554B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		715E70CA15E3034000E554B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		715E70CC15E3034000E554B1 /* RelayTionship-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RelayTionship-Prefix.pch"; sourceTree = "<group>"; };
-		715E70CD15E3034000E554B1 /* RTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTAppDelegate.h; sourceTree = "<group>"; };
-		715E70CE15E3034000E554B1 /* RTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTAppDelegate.m; sourceTree = "<group>"; };
 		715E70D115E3034000E554B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		715E70D415E3034000E554B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		715E70D615E3034000E554B1 /* RTFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTFirstViewController.h; sourceTree = "<group>"; };
-		715E70D715E3034000E554B1 /* RTFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTFirstViewController.m; sourceTree = "<group>"; };
 		715E70D915E3034000E554B1 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		715E70DB15E3034000E554B1 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		715E70DD15E3034000E554B1 /* RTSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTSecondViewController.h; sourceTree = "<group>"; };
 		715E70DE15E3034000E554B1 /* RTSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTSecondViewController.m; sourceTree = "<group>"; };
 		715E70E015E3034000E554B1 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		715E70E215E3034000E554B1 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		715E70FE15E3041100E554B1 /* RTCoreDataAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTCoreDataAgent.h; path = RelayTionship/RTCoreDataAgent.h; sourceTree = "<group>"; };
+		715E70FF15E3041100E554B1 /* RTCoreDataAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RTCoreDataAgent.m; path = RelayTionship/RTCoreDataAgent.m; sourceTree = "<group>"; };
+		715E710A15E304DF00E554B1 /* RTAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTAppDelegate.h; sourceTree = "<group>"; };
+		715E710B15E304DF00E554B1 /* RTAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTAppDelegate.m; sourceTree = "<group>"; };
+		715E710D15E3052B00E554B1 /* TKECoreDataAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TKECoreDataAgent.h; path = RelayTionship/TKECoreDataAgent.h; sourceTree = "<group>"; };
+		715E710E15E3052B00E554B1 /* TKECoreDataAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TKECoreDataAgent.m; path = RelayTionship/TKECoreDataAgent.m; sourceTree = "<group>"; };
+		715E711015E305B900E554B1 /* _AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _AppSettings.h; path = RelayTionship/_AppSettings.h; sourceTree = "<group>"; };
+		715E711115E305B900E554B1 /* _AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _AppSettings.m; path = RelayTionship/_AppSettings.m; sourceTree = "<group>"; };
+		715E711215E305B900E554B1 /* _Leg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Leg.h; path = RelayTionship/_Leg.h; sourceTree = "<group>"; };
+		715E711315E305B900E554B1 /* _Leg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Leg.m; path = RelayTionship/_Leg.m; sourceTree = "<group>"; };
+		715E711415E305B900E554B1 /* _Runner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Runner.h; path = RelayTionship/_Runner.h; sourceTree = "<group>"; };
+		715E711515E305B900E554B1 /* _Runner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Runner.m; path = RelayTionship/_Runner.m; sourceTree = "<group>"; };
+		715E711615E305B900E554B1 /* _Van.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Van.h; path = RelayTionship/_Van.h; sourceTree = "<group>"; };
+		715E711715E305B900E554B1 /* _Van.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Van.m; path = RelayTionship/_Van.m; sourceTree = "<group>"; };
+		715E711C15E3061100E554B1 /* AppSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppSettings.h; path = RelayTionship/AppSettings.h; sourceTree = "<group>"; };
+		715E711D15E3061100E554B1 /* AppSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppSettings.m; path = RelayTionship/AppSettings.m; sourceTree = "<group>"; };
+		715E711E15E3061100E554B1 /* Leg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Leg.h; path = RelayTionship/Leg.h; sourceTree = "<group>"; };
+		715E711F15E3061100E554B1 /* Leg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Leg.m; path = RelayTionship/Leg.m; sourceTree = "<group>"; };
+		715E712015E3061100E554B1 /* Runner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Runner.h; path = RelayTionship/Runner.h; sourceTree = "<group>"; };
+		715E712115E3061100E554B1 /* Runner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Runner.m; path = RelayTionship/Runner.m; sourceTree = "<group>"; };
+		715E712215E3061100E554B1 /* Van.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Van.h; path = RelayTionship/Van.h; sourceTree = "<group>"; };
+		715E712315E3061100E554B1 /* Van.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Van.m; path = RelayTionship/Van.m; sourceTree = "<group>"; };
+		715E712915E3064A00E554B1 /* RTTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTabBarController.h; sourceTree = "<group>"; };
+		715E712A15E3064A00E554B1 /* RTTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTabBarController.m; sourceTree = "<group>"; };
+		715E712C15E3065E00E554B1 /* RTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTableViewController.h; sourceTree = "<group>"; };
+		715E712D15E3065F00E554B1 /* RTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTableViewController.m; sourceTree = "<group>"; };
+		715E712E15E3065F00E554B1 /* RTTeamRosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTeamRosterViewController.h; sourceTree = "<group>"; };
+		715E712F15E3065F00E554B1 /* RTTeamRosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTeamRosterViewController.m; sourceTree = "<group>"; };
+		715E713015E3065F00E554B1 /* RTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTViewController.h; sourceTree = "<group>"; };
+		715E713115E3065F00E554B1 /* RTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTViewController.m; sourceTree = "<group>"; };
+		715E713515E30E4E00E554B1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		715E713815E3BD8700E554B1 /* RelayTionship.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RelayTionship.xcdatamodel; sourceTree = "<group>"; };
+		715E713A15E3C02300E554B1 /* RTNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTNavController.h; sourceTree = "<group>"; };
+		715E713B15E3C02300E554B1 /* RTNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTNavController.m; sourceTree = "<group>"; };
+		715E714015E3CE5700E554B1 /* RTRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRunnerViewController.h; sourceTree = "<group>"; };
+		715E714115E3CE5700E554B1 /* RTRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRunnerViewController.m; sourceTree = "<group>"; };
+		715E714415E3EA0B00E554B1 /* RTLegsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLegsViewController.h; sourceTree = "<group>"; };
+		715E714515E3EA0B00E554B1 /* RTLegsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLegsViewController.m; sourceTree = "<group>"; };
+		715E714815E4363C00E554B1 /* RTLegDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLegDetailsViewController.h; sourceTree = "<group>"; };
+		715E714915E4363C00E554B1 /* RTLegDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLegDetailsViewController.m; sourceTree = "<group>"; };
+		715E714B15E5845F00E554B1 /* RTTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTimerViewController.h; sourceTree = "<group>"; };
+		715E714C15E5845F00E554B1 /* RTTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTimerViewController.m; sourceTree = "<group>"; };
+		715E714F15E59EFB00E554B1 /* _LegTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _LegTime.h; path = RelayTionship/_LegTime.h; sourceTree = "<group>"; };
+		715E715015E59EFB00E554B1 /* _LegTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _LegTime.m; path = RelayTionship/_LegTime.m; sourceTree = "<group>"; };
+		715E715115E59EFB00E554B1 /* LegTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LegTime.h; path = RelayTionship/LegTime.h; sourceTree = "<group>"; };
+		715E715215E59EFB00E554B1 /* LegTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LegTime.m; path = RelayTionship/LegTime.m; sourceTree = "<group>"; };
+		715E715515E6AD6B00E554B1 /* RTRunnerPassedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRunnerPassedViewController.h; sourceTree = "<group>"; };
+		715E715615E6AD6C00E554B1 /* RTRunnerPassedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRunnerPassedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715E713615E30E4E00E554B1 /* CoreData.framework in Frameworks */,
 				715E70BF15E3033F00E554B1 /* UIKit.framework in Frameworks */,
 				715E70C115E3033F00E554B1 /* Foundation.framework in Frameworks */,
 				715E70C315E3033F00E554B1 /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +131,8 @@
 		715E70AF15E3033F00E554B1 = {
 			isa = PBXGroup;
 			children = (
+				715E70EA15E3035E00E554B1 /* TKE-iOS */,
+				715E70E915E3035800E554B1 /* Model */,
 				715E70C415E3034000E554B1 /* RelayTionship */,
 				715E70BD15E3033F00E554B1 /* Frameworks */,
 				715E70BB15E3033F00E554B1 /* Products */,
@@ -83,6 +153,7 @@
 				715E70BE15E3033F00E554B1 /* UIKit.framework */,
 				715E70C015E3033F00E554B1 /* Foundation.framework */,
 				715E70C215E3033F00E554B1 /* CoreGraphics.framework */,
+				715E713515E30E4E00E554B1 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -90,18 +161,18 @@
 		715E70C415E3034000E554B1 /* RelayTionship */ = {
 			isa = PBXGroup;
 			children = (
-				715E70CD15E3034000E554B1 /* RTAppDelegate.h */,
-				715E70CE15E3034000E554B1 /* RTAppDelegate.m */,
+				715E710A15E304DF00E554B1 /* RTAppDelegate.h */,
+				715E710B15E304DF00E554B1 /* RTAppDelegate.m */,
+				715E70EB15E3036600E554B1 /* Base Classes */,
 				715E70D015E3034000E554B1 /* MainStoryboard_iPhone.storyboard */,
 				715E70D315E3034000E554B1 /* MainStoryboard_iPad.storyboard */,
-				715E70D615E3034000E554B1 /* RTFirstViewController.h */,
-				715E70D715E3034000E554B1 /* RTFirstViewController.m */,
-				715E70D915E3034000E554B1 /* first.png */,
-				715E70DB15E3034000E554B1 /* first@2x.png */,
+				715E712915E3064A00E554B1 /* RTTabBarController.h */,
+				715E712A15E3064A00E554B1 /* RTTabBarController.m */,
+				715E714315E3E9E700E554B1 /* Team Roster Tab */,
+				715E714715E3EA1200E554B1 /* Legs Tab */,
+				715E714E15E5846600E554B1 /* Timer Tab */,
 				715E70DD15E3034000E554B1 /* RTSecondViewController.h */,
 				715E70DE15E3034000E554B1 /* RTSecondViewController.m */,
-				715E70E015E3034000E554B1 /* second.png */,
-				715E70E215E3034000E554B1 /* second@2x.png */,
 				715E70C515E3034000E554B1 /* Supporting Files */,
 			);
 			path = RelayTionship;
@@ -110,12 +181,109 @@
 		715E70C515E3034000E554B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				715E70D915E3034000E554B1 /* first.png */,
+				715E70DB15E3034000E554B1 /* first@2x.png */,
+				715E70E015E3034000E554B1 /* second.png */,
+				715E70E215E3034000E554B1 /* second@2x.png */,
 				715E70C615E3034000E554B1 /* RelayTionship-Info.plist */,
 				715E70C715E3034000E554B1 /* InfoPlist.strings */,
 				715E70CA15E3034000E554B1 /* main.m */,
 				715E70CC15E3034000E554B1 /* RelayTionship-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		715E70E915E3035800E554B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				715E713715E3BD8700E554B1 /* RelayTionship.xcdatamodeld */,
+				715E70FE15E3041100E554B1 /* RTCoreDataAgent.h */,
+				715E70FF15E3041100E554B1 /* RTCoreDataAgent.m */,
+				715E712815E3062000E554B1 /* mogen */,
+				715E711C15E3061100E554B1 /* AppSettings.h */,
+				715E711D15E3061100E554B1 /* AppSettings.m */,
+				715E711E15E3061100E554B1 /* Leg.h */,
+				715E711F15E3061100E554B1 /* Leg.m */,
+				715E715115E59EFB00E554B1 /* LegTime.h */,
+				715E715215E59EFB00E554B1 /* LegTime.m */,
+				715E712015E3061100E554B1 /* Runner.h */,
+				715E712115E3061100E554B1 /* Runner.m */,
+				715E712215E3061100E554B1 /* Van.h */,
+				715E712315E3061100E554B1 /* Van.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		715E70EA15E3035E00E554B1 /* TKE-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				715E710D15E3052B00E554B1 /* TKECoreDataAgent.h */,
+				715E710E15E3052B00E554B1 /* TKECoreDataAgent.m */,
+			);
+			name = "TKE-iOS";
+			sourceTree = "<group>";
+		};
+		715E70EB15E3036600E554B1 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				715E712C15E3065E00E554B1 /* RTTableViewController.h */,
+				715E712D15E3065F00E554B1 /* RTTableViewController.m */,
+				715E713015E3065F00E554B1 /* RTViewController.h */,
+				715E713115E3065F00E554B1 /* RTViewController.m */,
+				715E713A15E3C02300E554B1 /* RTNavController.h */,
+				715E713B15E3C02300E554B1 /* RTNavController.m */,
+			);
+			name = "Base Classes";
+			sourceTree = "<group>";
+		};
+		715E712815E3062000E554B1 /* mogen */ = {
+			isa = PBXGroup;
+			children = (
+				715E711015E305B900E554B1 /* _AppSettings.h */,
+				715E711115E305B900E554B1 /* _AppSettings.m */,
+				715E711215E305B900E554B1 /* _Leg.h */,
+				715E711315E305B900E554B1 /* _Leg.m */,
+				715E714F15E59EFB00E554B1 /* _LegTime.h */,
+				715E715015E59EFB00E554B1 /* _LegTime.m */,
+				715E711415E305B900E554B1 /* _Runner.h */,
+				715E711515E305B900E554B1 /* _Runner.m */,
+				715E711615E305B900E554B1 /* _Van.h */,
+				715E711715E305B900E554B1 /* _Van.m */,
+			);
+			name = mogen;
+			sourceTree = "<group>";
+		};
+		715E714315E3E9E700E554B1 /* Team Roster Tab */ = {
+			isa = PBXGroup;
+			children = (
+				715E712E15E3065F00E554B1 /* RTTeamRosterViewController.h */,
+				715E712F15E3065F00E554B1 /* RTTeamRosterViewController.m */,
+				715E714015E3CE5700E554B1 /* RTRunnerViewController.h */,
+				715E714115E3CE5700E554B1 /* RTRunnerViewController.m */,
+			);
+			name = "Team Roster Tab";
+			sourceTree = "<group>";
+		};
+		715E714715E3EA1200E554B1 /* Legs Tab */ = {
+			isa = PBXGroup;
+			children = (
+				715E714415E3EA0B00E554B1 /* RTLegsViewController.h */,
+				715E714515E3EA0B00E554B1 /* RTLegsViewController.m */,
+				715E714815E4363C00E554B1 /* RTLegDetailsViewController.h */,
+				715E714915E4363C00E554B1 /* RTLegDetailsViewController.m */,
+			);
+			name = "Legs Tab";
+			sourceTree = "<group>";
+		};
+		715E714E15E5846600E554B1 /* Timer Tab */ = {
+			isa = PBXGroup;
+			children = (
+				715E714B15E5845F00E554B1 /* RTTimerViewController.h */,
+				715E714C15E5845F00E554B1 /* RTTimerViewController.m */,
+				715E715515E6AD6B00E554B1 /* RTRunnerPassedViewController.h */,
+				715E715615E6AD6C00E554B1 /* RTRunnerPassedViewController.m */,
+			);
+			name = "Timer Tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +356,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				715E70CB15E3034000E554B1 /* main.m in Sources */,
-				715E70CF15E3034000E554B1 /* RTAppDelegate.m in Sources */,
-				715E70D815E3034000E554B1 /* RTFirstViewController.m in Sources */,
 				715E70DF15E3034000E554B1 /* RTSecondViewController.m in Sources */,
+				715E710015E3041100E554B1 /* RTCoreDataAgent.m in Sources */,
+				715E710C15E304DF00E554B1 /* RTAppDelegate.m in Sources */,
+				715E710F15E3052B00E554B1 /* TKECoreDataAgent.m in Sources */,
+				715E711815E305B900E554B1 /* _AppSettings.m in Sources */,
+				715E711915E305B900E554B1 /* _Leg.m in Sources */,
+				715E711A15E305B900E554B1 /* _Runner.m in Sources */,
+				715E711B15E305B900E554B1 /* _Van.m in Sources */,
+				715E712415E3061100E554B1 /* AppSettings.m in Sources */,
+				715E712515E3061100E554B1 /* Leg.m in Sources */,
+				715E712615E3061100E554B1 /* Runner.m in Sources */,
+				715E712715E3061100E554B1 /* Van.m in Sources */,
+				715E712B15E3064A00E554B1 /* RTTabBarController.m in Sources */,
+				715E713215E3065F00E554B1 /* RTTableViewController.m in Sources */,
+				715E713315E3065F00E554B1 /* RTTeamRosterViewController.m in Sources */,
+				715E713415E3065F00E554B1 /* RTViewController.m in Sources */,
+				715E713915E3BD8700E554B1 /* RelayTionship.xcdatamodeld in Sources */,
+				715E713C15E3C02300E554B1 /* RTNavController.m in Sources */,
+				715E714215E3CE5700E554B1 /* RTRunnerViewController.m in Sources */,
+				715E714615E3EA0B00E554B1 /* RTLegsViewController.m in Sources */,
+				715E714A15E4363C00E554B1 /* RTLegDetailsViewController.m in Sources */,
+				715E714D15E5846000E554B1 /* RTTimerViewController.m in Sources */,
+				715E715315E59EFB00E554B1 /* _LegTime.m in Sources */,
+				715E715415E59EFB00E554B1 /* LegTime.m in Sources */,
+				715E715715E6AD6C00E554B1 /* RTRunnerPassedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +508,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		715E713715E3BD8700E554B1 /* RelayTionship.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				715E713815E3BD8700E554B1 /* RelayTionship.xcdatamodel */,
+			);
+			currentVersion = 715E713815E3BD8700E554B1 /* RelayTionship.xcdatamodel */;
+			path = RelayTionship.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 715E70B115E3033F00E554B1 /* Project object */;
 }
