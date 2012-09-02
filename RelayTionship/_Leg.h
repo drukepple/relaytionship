@@ -7,6 +7,7 @@
 extern const struct LegAttributes {
 	__unsafe_unretained NSString *distance;
 	__unsafe_unretained NSString *number;
+	__unsafe_unretained NSString *projectedPace;
 } LegAttributes;
 
 extern const struct LegRelationships {
@@ -19,6 +20,7 @@ extern const struct LegFetchedProperties {
 
 @class LegTime;
 @class Runner;
+
 
 
 
@@ -55,6 +57,18 @@ extern const struct LegFetchedProperties {
 - (void)setNumberValue:(int16_t)value_;
 
 //- (BOOL)validateNumber:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSNumber* projectedPace;
+
+
+@property float projectedPaceValue;
+- (float)projectedPaceValue;
+- (void)setProjectedPaceValue:(float)value_;
+
+//- (BOOL)validateProjectedPace:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -98,6 +112,15 @@ extern const struct LegFetchedProperties {
 
 - (int16_t)primitiveNumberValue;
 - (void)setPrimitiveNumberValue:(int16_t)value_;
+
+
+
+
+- (NSNumber*)primitiveProjectedPace;
+- (void)setPrimitiveProjectedPace:(NSNumber*)value;
+
+- (float)primitiveProjectedPaceValue;
+- (void)setPrimitiveProjectedPaceValue:(float)value_;
 
 
 

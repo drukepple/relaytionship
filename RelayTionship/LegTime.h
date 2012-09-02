@@ -5,4 +5,6 @@
 
 -(NSTimeInterval) elapsedTime;
 
++(NSString*) formatSecondsToString:(NSTimeInterval)timeInterval;
+
 @end

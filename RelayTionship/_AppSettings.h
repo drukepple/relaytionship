@@ -6,6 +6,7 @@
 
 extern const struct AppSettingsAttributes {
 	__unsafe_unretained NSString *isTiming;
+	__unsafe_unretained NSString *projectedShowsCountdown;
 	__unsafe_unretained NSString *selectedTab;
 } AppSettingsAttributes;
 
@@ -14,6 +15,7 @@ extern const struct AppSettingsRelationships {
 
 extern const struct AppSettingsFetchedProperties {
 } AppSettingsFetchedProperties;
+
 
 
 
@@ -39,6 +41,18 @@ extern const struct AppSettingsFetchedProperties {
 - (void)setIsTimingValue:(BOOL)value_;
 
 //- (BOOL)validateIsTiming:(id*)value_ error:(NSError**)error_;
+
+
+
+
+@property (nonatomic, strong) NSNumber* projectedShowsCountdown;
+
+
+@property BOOL projectedShowsCountdownValue;
+- (BOOL)projectedShowsCountdownValue;
+- (void)setProjectedShowsCountdownValue:(BOOL)value_;
+
+//- (BOOL)validateProjectedShowsCountdown:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -71,6 +85,15 @@ extern const struct AppSettingsFetchedProperties {
 
 - (BOOL)primitiveIsTimingValue;
 - (void)setPrimitiveIsTimingValue:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveProjectedShowsCountdown;
+- (void)setPrimitiveProjectedShowsCountdown:(NSNumber*)value;
+
+- (BOOL)primitiveProjectedShowsCountdownValue;
+- (void)setPrimitiveProjectedShowsCountdownValue:(BOOL)value_;
 
 
 

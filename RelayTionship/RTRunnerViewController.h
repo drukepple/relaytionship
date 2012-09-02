@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 #import "RTTableViewController.h"
 #import "Runner.h"
 
-@interface RTRunnerViewController : RTTableViewController <UITextFieldDelegate>
+@interface RTRunnerViewController : RTTableViewController <UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate>
 
 @property (strong, nonatomic) Runner *runner;
+- (IBAction)importFromContactsTap:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *totalMilesLabel;
 
 @end

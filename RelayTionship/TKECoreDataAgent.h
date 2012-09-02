@@ -26,6 +26,8 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (readonly) NSURL *storePathURL;
+
 - (id) initWithStoreName:(NSString *)storeName;
 
 - (void)saveContext;

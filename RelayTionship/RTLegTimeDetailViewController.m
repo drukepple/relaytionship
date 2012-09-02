@@ -1,24 +1,24 @@
 //
-//  RTLegsViewController.m
+//  RTLegTimeDetailViewController.m
 //  RelayTionship
 //
-//  Created by Dru Kepple on 8/21/12.
+//  Created by Dru Kepple on 8/23/12.
 //  Copyright (c) 2012 Dru Kepple. All rights reserved.
 //
 
-#import "RTLegsViewController.h"
-#import "Leg.h"
+#import "RTLegTimeDetailViewController.h"
 #import "LegTime.h"
-#import "RTLegDetailsViewController.h"
-#import "RTLegTableCell.h"
 
-@interface RTLegsViewController () {
-	NSNumberFormatter *distanceFormatter;
-}
+@interface RTLegTimeDetailViewController ()
 
 @end
 
-@implementation RTLegsViewController
+
+@implementation RTLegTimeDetailViewController
+
+@synthesize leg = _leg;
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
@@ -30,10 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	distanceFormatter = [[NSNumberFormatter alloc] init];
-	distanceFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-	distanceFormatter.maximumFractionDigits = 2;
-	distanceFormatter.minimumFractionDigits = 1;
+	
+	keys = [NSArray arrayWithObjects:@"Leg", @"Runner", @"Distance", @"Time", @"Pace", nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -51,19 +49,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	[self reloadTableData];
-}
-
-
-#pragma mark - Data
-- (void)reloadTableData {
-	self.legs = self.localStore.allLegs;
-	[super reloadTableData];
-}
-
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -71,45 +56,56 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.legs.count;
+    return keys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"legCell";
+    static NSString *CellIdentifier = @"legTimeDetailsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    RTLegTableCell *legCell = (RTLegTableCell *)cell;
+    
+	NSString *key = [keys objectAtIndex:indexPath.row];
+	NSString *value;
+	NSTimeInterval secs;
+	Leg *leg = self.leg;
+	LegTime *time = leg.legTime;
+	//NSLog(@"Leg: %@", leg);
 	
-    // Configure the cell...
-	Leg *l = [self.localStore legByIndex:indexPath.row];
-	NSString *distanceLabel =  [distanceFormatter stringFromNumber:l.distance];
-    //cell.textLabel.text = [NSString stringWithFormat:@"Leg %d - %@m", l.numberValue, distanceLabel];
-	//cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %.02f", l.runner.name, l.projectedPaceValue];
+    switch (indexPath.row) {
+		case 0:
+			//key = @"Leg";
+			value = [leg.number stringValue];
+			break;
+			
+		case 1:
+			//key = @"Runner";
+			value = leg.runner.name;
+			break;
+		
+		case 2:
+			//key = @"Distance";
+			value = [NSString stringWithFormat:@"%.01f miles", leg.distanceValue];
+			break;
+			
+		case 3:
+			//key = @"Time";
+			secs = [time.endTime timeIntervalSinceDate:time.startTime];
+			value = [LegTime formatSecondsToString:secs];
+			break;
+			
+		case 4:
+			//key = @"Pace";
+			secs = [time.endTime timeIntervalSinceDate:time.startTime];
+			value = [LegTime formatSecondsToString:secs / leg.distanceValue];
+			break;
+			
+		default:
+			break;
+	}
 	
-	// Text
-	legCell.legLabel.text      = [NSString stringWithFormat:@"Leg %d", l.numberValue];
-	legCell.distanceLabel.text = [NSString stringWithFormat:@"%@m", distanceLabel];
-	legCell.runnerLabel.text   = l.runner.name;
-	legCell.paceLabel.text     = [LegTime formatSecondsToString:l.projectedPaceValue * 60];//[NSString stringWithFormat:@"%.02f", l.projectedPaceValue];
-	
-	// Position Distance Label to Leg Label
-	[legCell.legLabel sizeToFit];
-	CGRect legRect = legCell.legLabel.frame;
-	CGRect distRect = legCell.distanceLabel.frame;
-	distRect.origin.x = legRect.origin.x + legRect.size.width + 6;
-	legCell.distanceLabel.frame = distRect;
-
-	// Position Runner Label to Pace Label
-	[legCell.paceLabel sizeToFit];
-	[legCell.runnerLabel sizeToFit];
-	
-	CGRect paceRect = legCell.paceLabel.frame;
-	CGRect runnerRect = legCell.runnerLabel.frame;
-	paceRect.origin.x = 291 - paceRect.size.width;
-	runnerRect.origin.x = paceRect.origin.x - runnerRect.size.width - 6;
-	legCell.paceLabel.frame = paceRect;
-	legCell.runnerLabel.frame = runnerRect;
-	
-    return legCell;
+	cell.textLabel.text = key;
+	cell.detailTextLabel.text = value;
+    
+    return cell;
 }
 
 /*
@@ -153,8 +149,7 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -164,15 +159,13 @@
      */
 }
 
-#pragma mark - Segue
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-	NSString *segId = segue.identifier;
-	if ([segId isEqualToString:@"legDetails"]) {
-		RTLegDetailsViewController * vc = (RTLegDetailsViewController *)segue.destinationViewController;
-//		NSLog(@"vc: %@", vc);
-		vc.leg = [self.localStore legByIndex:self.tableView.indexPathForSelectedRow.row];
-		vc.localStore = self.localStore;
-	}
+
+
+#pragma mark - Setters / Getters
+- (void) setLeg:(Leg *)leg {
+	_leg = leg;
+	[self.tableView reloadData];
 }
+
 
 @end

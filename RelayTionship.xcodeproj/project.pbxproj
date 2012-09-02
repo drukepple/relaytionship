@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		713F45FD15F2445E00D583D1 /* RTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F45FC15F2445E00D583D1 /* RTUtil.m */; };
+		713F460115F3171D00D583D1 /* RTDurationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F460015F3171D00D583D1 /* RTDurationPicker.m */; };
 		715E70BF15E3033F00E554B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70BE15E3033F00E554B1 /* UIKit.framework */; };
 		715E70C115E3033F00E554B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70C015E3033F00E554B1 /* Foundation.framework */; };
 		715E70C315E3033F00E554B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70C215E3033F00E554B1 /* CoreGraphics.framework */; };
@@ -44,9 +46,30 @@
 		715E715315E59EFB00E554B1 /* _LegTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E715015E59EFB00E554B1 /* _LegTime.m */; };
 		715E715415E59EFB00E554B1 /* LegTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E715215E59EFB00E554B1 /* LegTime.m */; };
 		715E715715E6AD6C00E554B1 /* RTRunnerPassedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715E715615E6AD6C00E554B1 /* RTRunnerPassedViewController.m */; };
+		715ED7F415E6E65900CF4C22 /* RTLegTimeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED7F315E6E65900CF4C22 /* RTLegTimeDetailViewController.m */; };
+		715ED7F715E6F56A00CF4C22 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715ED7F615E6F56A00CF4C22 /* AddressBookUI.framework */; };
+		715ED7F915E6F7EC00CF4C22 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715ED7F815E6F7EC00CF4C22 /* AddressBook.framework */; };
+		715ED7FB15E71EBC00CF4C22 /* icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED7FA15E71EBC00CF4C22 /* icon-57.png */; };
+		715ED7FD15E71EC800CF4C22 /* icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED7FC15E71EC800CF4C22 /* icon-114.png */; };
+		715ED80015E72EBD00CF4C22 /* tab-team.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED7FE15E72EBD00CF4C22 /* tab-team.png */; };
+		715ED80115E72EBD00CF4C22 /* tab-team@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED7FF15E72EBD00CF4C22 /* tab-team@2x.png */; };
+		715ED80415E72FF000CF4C22 /* tab-legs.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED80215E72FF000CF4C22 /* tab-legs.png */; };
+		715ED80515E72FF000CF4C22 /* tab-legs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED80315E72FF000CF4C22 /* tab-legs@2x.png */; };
+		715ED80815E731A000CF4C22 /* tab-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED80615E731A000CF4C22 /* tab-clock.png */; };
+		715ED80915E731A000CF4C22 /* tab-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 715ED80715E731A000CF4C22 /* tab-clock@2x.png */; };
+		715ED80E15E7EC8600CF4C22 /* RTRaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED80D15E7EC8600CF4C22 /* RTRaceTableViewController.m */; };
+		715ED81315E7EFBE00CF4C22 /* _Race.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED81015E7EFBE00CF4C22 /* _Race.m */; };
+		715ED81415E7EFBE00CF4C22 /* Race.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED81215E7EFBE00CF4C22 /* Race.m */; };
+		715ED81615E7F73C00CF4C22 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715ED81515E7F73C00CF4C22 /* MessageUI.framework */; };
+		715ED81915EDC63B00CF4C22 /* RTLegTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED81815EDC63B00CF4C22 /* RTLegTableCell.m */; };
+		715ED81C15EE598200CF4C22 /* RTPacePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED81B15EE598100CF4C22 /* RTPacePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		713F45FB15F2445E00D583D1 /* RTUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTUtil.h; sourceTree = "<group>"; };
+		713F45FC15F2445E00D583D1 /* RTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUtil.m; sourceTree = "<group>"; };
+		713F45FF15F3171D00D583D1 /* RTDurationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDurationPicker.h; sourceTree = "<group>"; };
+		713F460015F3171D00D583D1 /* RTDurationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDurationPicker.m; sourceTree = "<group>"; };
 		715E70BA15E3033F00E554B1 /* RelayTionship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelayTionship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		715E70BE15E3033F00E554B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		715E70C015E3033F00E554B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -111,6 +134,30 @@
 		715E715215E59EFB00E554B1 /* LegTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LegTime.m; path = RelayTionship/LegTime.m; sourceTree = "<group>"; };
 		715E715515E6AD6B00E554B1 /* RTRunnerPassedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRunnerPassedViewController.h; sourceTree = "<group>"; };
 		715E715615E6AD6C00E554B1 /* RTRunnerPassedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRunnerPassedViewController.m; sourceTree = "<group>"; };
+		715ED7F215E6E65900CF4C22 /* RTLegTimeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLegTimeDetailViewController.h; sourceTree = "<group>"; };
+		715ED7F315E6E65900CF4C22 /* RTLegTimeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLegTimeDetailViewController.m; sourceTree = "<group>"; };
+		715ED7F615E6F56A00CF4C22 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		715ED7F815E6F7EC00CF4C22 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		715ED7FA15E71EBC00CF4C22 /* icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-57.png"; path = "../icon-57.png"; sourceTree = "<group>"; };
+		715ED7FC15E71EC800CF4C22 /* icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-114.png"; path = "../icon-114.png"; sourceTree = "<group>"; };
+		715ED7FE15E72EBD00CF4C22 /* tab-team.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-team.png"; path = "icons/tab-team.png"; sourceTree = "<group>"; };
+		715ED7FF15E72EBD00CF4C22 /* tab-team@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-team@2x.png"; path = "icons/tab-team@2x.png"; sourceTree = "<group>"; };
+		715ED80215E72FF000CF4C22 /* tab-legs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-legs.png"; path = "icons/tab-legs.png"; sourceTree = "<group>"; };
+		715ED80315E72FF000CF4C22 /* tab-legs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tab-legs@2x.png"; path = "icons/tab-legs@2x.png"; sourceTree = "<group>"; };
+		715ED80615E731A000CF4C22 /* tab-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-clock.png"; sourceTree = "<group>"; };
+		715ED80715E731A000CF4C22 /* tab-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-clock@2x.png"; sourceTree = "<group>"; };
+		715ED80A15E7549300CF4C22 /* notes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes.txt; sourceTree = "<group>"; };
+		715ED80C15E7EC8600CF4C22 /* RTRaceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRaceTableViewController.h; sourceTree = "<group>"; };
+		715ED80D15E7EC8600CF4C22 /* RTRaceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRaceTableViewController.m; sourceTree = "<group>"; };
+		715ED80F15E7EFBE00CF4C22 /* _Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _Race.h; path = RelayTionship/_Race.h; sourceTree = "<group>"; };
+		715ED81015E7EFBE00CF4C22 /* _Race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _Race.m; path = RelayTionship/_Race.m; sourceTree = "<group>"; };
+		715ED81115E7EFBE00CF4C22 /* Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Race.h; path = RelayTionship/Race.h; sourceTree = "<group>"; };
+		715ED81215E7EFBE00CF4C22 /* Race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Race.m; path = RelayTionship/Race.m; sourceTree = "<group>"; };
+		715ED81515E7F73C00CF4C22 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		715ED81715EDC63B00CF4C22 /* RTLegTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLegTableCell.h; sourceTree = "<group>"; };
+		715ED81815EDC63B00CF4C22 /* RTLegTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLegTableCell.m; sourceTree = "<group>"; };
+		715ED81A15EE598100CF4C22 /* RTPacePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPacePicker.h; sourceTree = "<group>"; };
+		715ED81B15EE598100CF4C22 /* RTPacePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPacePicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +165,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				715ED81615E7F73C00CF4C22 /* MessageUI.framework in Frameworks */,
+				715ED7F915E6F7EC00CF4C22 /* AddressBook.framework in Frameworks */,
+				715ED7F715E6F56A00CF4C22 /* AddressBookUI.framework in Frameworks */,
 				715E713615E30E4E00E554B1 /* CoreData.framework in Frameworks */,
 				715E70BF15E3033F00E554B1 /* UIKit.framework in Frameworks */,
 				715E70C115E3033F00E554B1 /* Foundation.framework in Frameworks */,
@@ -152,8 +202,11 @@
 			children = (
 				715E70BE15E3033F00E554B1 /* UIKit.framework */,
 				715E70C015E3033F00E554B1 /* Foundation.framework */,
+				715ED7F815E6F7EC00CF4C22 /* AddressBook.framework */,
+				715ED7F615E6F56A00CF4C22 /* AddressBookUI.framework */,
 				715E70C215E3033F00E554B1 /* CoreGraphics.framework */,
 				715E713515E30E4E00E554B1 /* CoreData.framework */,
+				715ED81515E7F73C00CF4C22 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,6 +216,8 @@
 			children = (
 				715E710A15E304DF00E554B1 /* RTAppDelegate.h */,
 				715E710B15E304DF00E554B1 /* RTAppDelegate.m */,
+				713F45FB15F2445E00D583D1 /* RTUtil.h */,
+				713F45FC15F2445E00D583D1 /* RTUtil.m */,
 				715E70EB15E3036600E554B1 /* Base Classes */,
 				715E70D015E3034000E554B1 /* MainStoryboard_iPhone.storyboard */,
 				715E70D315E3034000E554B1 /* MainStoryboard_iPad.storyboard */,
@@ -171,9 +226,15 @@
 				715E714315E3E9E700E554B1 /* Team Roster Tab */,
 				715E714715E3EA1200E554B1 /* Legs Tab */,
 				715E714E15E5846600E554B1 /* Timer Tab */,
+				715ED80B15E7EC6600CF4C22 /* Race Tab */,
+				715ED81A15EE598100CF4C22 /* RTPacePicker.h */,
+				715ED81B15EE598100CF4C22 /* RTPacePicker.m */,
+				713F45FF15F3171D00D583D1 /* RTDurationPicker.h */,
+				713F460015F3171D00D583D1 /* RTDurationPicker.m */,
 				715E70DD15E3034000E554B1 /* RTSecondViewController.h */,
 				715E70DE15E3034000E554B1 /* RTSecondViewController.m */,
 				715E70C515E3034000E554B1 /* Supporting Files */,
+				715ED80A15E7549300CF4C22 /* notes.txt */,
 			);
 			path = RelayTionship;
 			sourceTree = "<group>";
@@ -181,6 +242,14 @@
 		715E70C515E3034000E554B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				715ED7FA15E71EBC00CF4C22 /* icon-57.png */,
+				715ED7FC15E71EC800CF4C22 /* icon-114.png */,
+				715ED7FE15E72EBD00CF4C22 /* tab-team.png */,
+				715ED7FF15E72EBD00CF4C22 /* tab-team@2x.png */,
+				715ED80215E72FF000CF4C22 /* tab-legs.png */,
+				715ED80315E72FF000CF4C22 /* tab-legs@2x.png */,
+				715ED80615E731A000CF4C22 /* tab-clock.png */,
+				715ED80715E731A000CF4C22 /* tab-clock@2x.png */,
 				715E70D915E3034000E554B1 /* first.png */,
 				715E70DB15E3034000E554B1 /* first@2x.png */,
 				715E70E015E3034000E554B1 /* second.png */,
@@ -206,6 +275,8 @@
 				715E711F15E3061100E554B1 /* Leg.m */,
 				715E715115E59EFB00E554B1 /* LegTime.h */,
 				715E715215E59EFB00E554B1 /* LegTime.m */,
+				715ED81115E7EFBE00CF4C22 /* Race.h */,
+				715ED81215E7EFBE00CF4C22 /* Race.m */,
 				715E712015E3061100E554B1 /* Runner.h */,
 				715E712115E3061100E554B1 /* Runner.m */,
 				715E712215E3061100E554B1 /* Van.h */,
@@ -245,6 +316,8 @@
 				715E711315E305B900E554B1 /* _Leg.m */,
 				715E714F15E59EFB00E554B1 /* _LegTime.h */,
 				715E715015E59EFB00E554B1 /* _LegTime.m */,
+				715ED80F15E7EFBE00CF4C22 /* _Race.h */,
+				715ED81015E7EFBE00CF4C22 /* _Race.m */,
 				715E711415E305B900E554B1 /* _Runner.h */,
 				715E711515E305B900E554B1 /* _Runner.m */,
 				715E711615E305B900E554B1 /* _Van.h */,
@@ -271,6 +344,8 @@
 				715E714515E3EA0B00E554B1 /* RTLegsViewController.m */,
 				715E714815E4363C00E554B1 /* RTLegDetailsViewController.h */,
 				715E714915E4363C00E554B1 /* RTLegDetailsViewController.m */,
+				715ED81715EDC63B00CF4C22 /* RTLegTableCell.h */,
+				715ED81815EDC63B00CF4C22 /* RTLegTableCell.m */,
 			);
 			name = "Legs Tab";
 			sourceTree = "<group>";
@@ -282,8 +357,19 @@
 				715E714C15E5845F00E554B1 /* RTTimerViewController.m */,
 				715E715515E6AD6B00E554B1 /* RTRunnerPassedViewController.h */,
 				715E715615E6AD6C00E554B1 /* RTRunnerPassedViewController.m */,
+				715ED7F215E6E65900CF4C22 /* RTLegTimeDetailViewController.h */,
+				715ED7F315E6E65900CF4C22 /* RTLegTimeDetailViewController.m */,
 			);
 			name = "Timer Tab";
+			sourceTree = "<group>";
+		};
+		715ED80B15E7EC6600CF4C22 /* Race Tab */ = {
+			isa = PBXGroup;
+			children = (
+				715ED80C15E7EC8600CF4C22 /* RTRaceTableViewController.h */,
+				715ED80D15E7EC8600CF4C22 /* RTRaceTableViewController.m */,
+			);
+			name = "Race Tab";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +431,14 @@
 				715E70DC15E3034000E554B1 /* first@2x.png in Resources */,
 				715E70E115E3034000E554B1 /* second.png in Resources */,
 				715E70E315E3034000E554B1 /* second@2x.png in Resources */,
+				715ED7FB15E71EBC00CF4C22 /* icon-57.png in Resources */,
+				715ED7FD15E71EC800CF4C22 /* icon-114.png in Resources */,
+				715ED80015E72EBD00CF4C22 /* tab-team.png in Resources */,
+				715ED80115E72EBD00CF4C22 /* tab-team@2x.png in Resources */,
+				715ED80415E72FF000CF4C22 /* tab-legs.png in Resources */,
+				715ED80515E72FF000CF4C22 /* tab-legs@2x.png in Resources */,
+				715ED80815E731A000CF4C22 /* tab-clock.png in Resources */,
+				715ED80915E731A000CF4C22 /* tab-clock@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +475,14 @@
 				715E715315E59EFB00E554B1 /* _LegTime.m in Sources */,
 				715E715415E59EFB00E554B1 /* LegTime.m in Sources */,
 				715E715715E6AD6C00E554B1 /* RTRunnerPassedViewController.m in Sources */,
+				715ED7F415E6E65900CF4C22 /* RTLegTimeDetailViewController.m in Sources */,
+				715ED80E15E7EC8600CF4C22 /* RTRaceTableViewController.m in Sources */,
+				715ED81315E7EFBE00CF4C22 /* _Race.m in Sources */,
+				715ED81415E7EFBE00CF4C22 /* Race.m in Sources */,
+				715ED81915EDC63B00CF4C22 /* RTLegTableCell.m in Sources */,
+				715ED81C15EE598200CF4C22 /* RTPacePicker.m in Sources */,
+				713F45FD15F2445E00D583D1 /* RTUtil.m in Sources */,
+				713F460115F3171D00D583D1 /* RTDurationPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +608,7 @@
 				715E70E815E3034000E554B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

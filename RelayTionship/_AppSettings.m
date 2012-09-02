@@ -5,6 +5,7 @@
 
 const struct AppSettingsAttributes AppSettingsAttributes = {
 	.isTiming = @"isTiming",
+	.projectedShowsCountdown = @"projectedShowsCountdown",
 	.selectedTab = @"selectedTab",
 };
 
@@ -44,6 +45,10 @@ const struct AppSettingsFetchedProperties AppSettingsFetchedProperties = {
 		NSSet *affectingKey = [NSSet setWithObject:@"isTiming"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"projectedShowsCountdownValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"projectedShowsCountdown"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"selectedTabValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"selectedTab"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -75,6 +80,32 @@ const struct AppSettingsFetchedProperties AppSettingsFetchedProperties = {
 
 - (void)setPrimitiveIsTimingValue:(BOOL)value_ {
 	[self setPrimitiveIsTiming:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic projectedShowsCountdown;
+
+
+
+- (BOOL)projectedShowsCountdownValue {
+	NSNumber *result = [self projectedShowsCountdown];
+	return [result boolValue];
+}
+
+- (void)setProjectedShowsCountdownValue:(BOOL)value_ {
+	[self setProjectedShowsCountdown:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveProjectedShowsCountdownValue {
+	NSNumber *result = [self primitiveProjectedShowsCountdown];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveProjectedShowsCountdownValue:(BOOL)value_ {
+	[self setPrimitiveProjectedShowsCountdown:[NSNumber numberWithBool:value_]];
 }
 
 

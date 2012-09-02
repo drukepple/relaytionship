@@ -13,8 +13,8 @@
 
 @interface RTTimerViewController : RTViewController <UITableViewDataSource, UITableViewDelegate, RTRunnerPassedViewControllerDelegate> {
 	NSArray *legTimes;
-	NSDateFormatter *timeFormatter;
 	NSTimer *stopwatchTimer;
+	NSDate *timeRunnerPassed;
 }
 @property (weak, nonatomic) IBOutlet UILabel *legTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *projectedTimeLabel;
@@ -23,4 +23,5 @@
 
 - (IBAction)newLegTap:(id)sender;
 - (IBAction)runnerPassTap:(id)sender;
+- (IBAction)projectedTimeTap:(UIButton *)sender;
 @end

@@ -7,10 +7,13 @@
 //
 
 #import "RTTimerViewController.h"
+#import "LegTime.h"
+#import "RTLegDetailsViewController.h"
+#import "RTUtil.h"
+
 
 @interface RTTimerViewController ()
 - (void) reloadTableData;
-- (NSString *) formatTimeFromSeconds:(NSTimeInterval)secs;
 - (void) recordLegTime;
 - (void) scrollToBottom;
 - (void) updateLegButtonText;
@@ -22,6 +25,8 @@
 static NSString *legButtonStartText = @"Start";
 static NSString *legButtonLegText   = @"New Leg";
 static NSString *legButtonStopText  = @"Stop";
+
+//static NSDateFormatter *clockFormatter = nil;
 
 @implementation RTTimerViewController
 @synthesize legTimeLabel;
@@ -46,11 +51,7 @@ static NSString *legButtonStopText  = @"Stop";
 	self.legButton.titleLabel.textAlignment = UITextAlignmentCenter;
 	
 	[self updateLegButtonText];
-	
-	timeFormatter = [[NSDateFormatter alloc] init];
-	timeFormatter.timeStyle = NSDateFormatterMediumStyle;
-	timeFormatter.dateStyle = NSDateFormatterNoStyle;
-	
+		
 //	stopwatchTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateStopwatch) userInfo:nil repeats:YES];
 	stopwatchTimer = [NSTimer timerWithTimeInterval:0.1 target:self selector:@selector(updateStopwatch) userInfo:nil repeats:YES];
 }
@@ -92,7 +93,7 @@ static NSString *legButtonStopText  = @"Stop";
 	NSTimeInterval soFar = [currentTime.startTime timeIntervalSinceNow];
 	soFar = -soFar;
 //	NSLog(@"%f", soFar);
-	NSString *timeString = [self formatTimeFromSeconds:soFar];
+	NSString *timeString = [LegTime formatSecondsToString:soFar];
 	self.legTimeLabel.text = timeString;
 	
 	[self updateProjectedTimeText];
@@ -126,7 +127,7 @@ static NSString *legButtonStopText  = @"Stop";
 	LegTime *l = [legTimes objectAtIndex:indexPath.row];
 	cell.textLabel.text = [NSString stringWithFormat:@"Leg %d", l.leg.numberValue];
 	if (l.endTime != nil) {
-		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [self formatTimeFromSeconds:l.elapsedTime]];
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [LegTime formatSecondsToString:l.elapsedTime]];
 		cell.detailTextLabel.textColor = [UIColor darkTextColor];
 	} else {
 		cell.detailTextLabel.text = @"In Progress";
@@ -135,24 +136,24 @@ static NSString *legButtonStopText  = @"Stop";
 	return cell;
 }
 
-- (NSString *) formatTimeFromSeconds:(NSTimeInterval)timeInterval {
-	int secs = round(timeInterval);
-	NSString *timeString;
-	if (secs < 60) {
-		timeString = [NSString stringWithFormat:@"0:%02d", secs];
-	} else if (secs < 60 * 60) {
-		int mins = floor((float)secs/60.0);
-		secs -= mins * 60;
-		timeString = [NSString stringWithFormat:@"%d:%02d", mins, secs];
-	} else {
-		int hrs = floor((float)secs/(60.0*60.0));
-		secs -= hrs * 60 * 60;
-		int mins = floor((float)secs/60.0);
-		secs -= mins * 60;
-		timeString = [NSString stringWithFormat:@"%d:%02d:%02d", hrs, mins, secs];
-	}
-	return timeString;
-}
+//- (NSString *) formatTimeFromSeconds:(NSTimeInterval)timeInterval {
+//	int secs = round(timeInterval);
+//	NSString *timeString;
+//	if (secs < 60) {
+//		timeString = [NSString stringWithFormat:@"0:%02d", secs];
+//	} else if (secs < 60 * 60) {
+//		int mins = floor((float)secs/60.0);
+//		secs -= mins * 60;
+//		timeString = [NSString stringWithFormat:@"%d:%02d", mins, secs];
+//	} else {
+//		int hrs = floor((float)secs/(60.0*60.0));
+//		secs -= hrs * 60 * 60;
+//		int mins = floor((float)secs/60.0);
+//		secs -= mins * 60;
+//		timeString = [NSString stringWithFormat:@"%d:%02d:%02d", hrs, mins, secs];
+//	}
+//	return timeString;
+//}
 
 #pragma mark - Table View Delegate
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -178,8 +179,21 @@ static NSString *legButtonStopText  = @"Stop";
 	LegTime *currentTime = [legTimes lastObject];
 	if (currentTime.mileageForProjectionValue > 0) {
 		NSDate *projectedEnd = currentTime.projectedEndTime;
-		NSTimeInterval projectedTime = [projectedEnd timeIntervalSinceNow];
-		self.projectedTimeLabel.text = [self formatTimeFromSeconds:projectedTime];
+		if (self.localStore.projectedShowsCountdown) {
+			NSTimeInterval projectedTime = [projectedEnd timeIntervalSinceNow];
+			self.projectedTimeLabel.text = [LegTime formatSecondsToString:projectedTime];
+		} else {
+//			if (clockFormatter == nil) {
+//				clockFormatter = [[NSDateFormatter alloc] init];
+//				NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+//				[clockFormatter setLocale:enUSPOSIXLocale];
+//				clockFormatter.AMSymbol = @"am";
+//				clockFormatter.PMSymbol = @"pm";
+//				[clockFormatter setDateFormat:@"h:mma"];
+//			}
+			NSDateFormatter *clockFormatter = [RTUtil clockFormatter];
+			self.projectedTimeLabel.text = [clockFormatter stringFromDate:projectedEnd];
+		}
 	} else {
 		self.projectedTimeLabel.text = @"--:--";
 		
@@ -205,9 +219,11 @@ static NSString *legButtonStopText  = @"Stop";
 	[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 - (void) doLeg {
-	if (self.localStore.allLegs.count-1 == self.localStore.allLegTimes.count) {
-		[self.legButton setTitle:legButtonStopText forState:UIControlStateNormal];
-	}
+//	if (self.localStore.allLegs.count-1 == self.localStore.allLegTimes.count) {
+//		[self.legButton setTitle:legButtonStopText forState:UIControlStateNormal];
+//	}
+	[self updateLegButtonText];
+	
 	[self recordLegTime];
 //	NSLog(@"+++++++++++++++++++++++++++++++\nlastLegTime: %@", lastLegTime);
 	/*LegTime *l = */[self.localStore makeLegTime];
@@ -218,6 +234,8 @@ static NSString *legButtonStopText  = @"Stop";
 
 - (void) doStop {
 	self.localStore.isTiming = NO;
+	[self stopStopwatch];
+	
 	[self recordLegTime];
 	[self reloadTableData];
 	[self updateProjectedTimeText];
@@ -241,17 +259,36 @@ static NSString *legButtonStopText  = @"Stop";
 //	[self updateProjectedTimeText];
 }
 
+- (IBAction)projectedTimeTap:(UIButton *)sender {
+	sender.selected = self.localStore.projectedShowsCountdown;
+	if (sender.selected) {
+		NSLog(@"selected");
+		self.localStore.projectedShowsCountdown = NO;
+	} else {
+		NSLog(@"normal");
+		self.localStore.projectedShowsCountdown = YES;
+	}
+	[self updateProjectedTimeText];
+}
 
 
-#pragma mark - Runner Passed VC Delegate
-
+#pragma mark - Storyboard
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	NSLog(@"Figure out how to cancel a segue on the bottom cell");
 	NSString *segId = segue.identifier;
-	if ([segId isEqualToString:@"runnerPassedModal"]) {
+	if ([segId isEqualToString:@"legTimeDetails"]) {
+		RTLegDetailsViewController *details = (RTLegDetailsViewController*)segue.destinationViewController;
+		details.leg = [self.localStore legByIndex:self.tableView.indexPathForSelectedRow.row];
+		details.localStore = self.localStore;
+	} else if ([segId isEqualToString:@"runnerPassedModal"]) {
+		timeRunnerPassed = [NSDate date];
 		RTRunnerPassedViewController *vc = (RTRunnerPassedViewController *)segue.destinationViewController;
 		vc.delegate = self;
 	}
 }
+
+
+#pragma mark - Runner Passed VC Delegate
 
 - (void)runnerPassedViewControllerDidCancel:(RTRunnerPassedViewController *)viewController {
 	[self dismissModalViewControllerAnimated:YES];
@@ -269,14 +306,15 @@ static NSString *legButtonStopText  = @"Stop";
 	LegTime *currentTime = [legTimes lastObject];
 	currentTime.mileageForProjectionValue = mileage;
 	// Store the projected time
-	NSTimeInterval elapsedSoFar = -[currentTime.startTime timeIntervalSinceNow];
+	NSTimeInterval elapsedSoFar = -[currentTime.startTime timeIntervalSinceDate:timeRunnerPassed];
+	timeRunnerPassed = nil;
 	float distance      = currentTime.leg.distanceValue;
 	float progress      = currentTime.mileageForProjectionValue;
 	float secsPerMile   = elapsedSoFar / progress;
 	float projectedTime = secsPerMile * distance;
 	currentTime.secondsForProjectionValue = projectedTime;
 	// Store the project time as a date.
-	NSDate *projectedEndTime = [[NSDate date] dateByAddingTimeInterval:projectedTime];
+	NSDate *projectedEndTime = [currentTime.startTime dateByAddingTimeInterval:projectedTime];
 	currentTime.projectedEndTime = projectedEndTime;
 	
 	[self.localStore saveContext];

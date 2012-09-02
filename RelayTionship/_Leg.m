@@ -6,6 +6,7 @@
 const struct LegAttributes LegAttributes = {
 	.distance = @"distance",
 	.number = @"number",
+	.projectedPace = @"projectedPace",
 };
 
 const struct LegRelationships LegRelationships = {
@@ -48,6 +49,10 @@ const struct LegFetchedProperties LegFetchedProperties = {
 	}
 	if ([key isEqualToString:@"numberValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"number"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"projectedPaceValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"projectedPace"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -103,6 +108,32 @@ const struct LegFetchedProperties LegFetchedProperties = {
 
 - (void)setPrimitiveNumberValue:(int16_t)value_ {
 	[self setPrimitiveNumber:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic projectedPace;
+
+
+
+- (float)projectedPaceValue {
+	NSNumber *result = [self projectedPace];
+	return [result floatValue];
+}
+
+- (void)setProjectedPaceValue:(float)value_ {
+	[self setProjectedPace:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveProjectedPaceValue {
+	NSNumber *result = [self primitiveProjectedPace];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveProjectedPaceValue:(float)value_ {
+	[self setPrimitiveProjectedPace:[NSNumber numberWithFloat:value_]];
 }
 
 

@@ -28,6 +28,46 @@
 - (void) initializeDefaultData {
 	// If there is no data, pre-populate wiht 12 runners and 36 legs.
 	if ([self fetchAllEntitiesOfName:@"Runner"].count == 0) {
+		NSArray *miles = [NSArray arrayWithObjects:[NSNumber numberWithFloat:5.64],
+						  [NSNumber numberWithFloat:5.67],
+						  [NSNumber numberWithFloat:3.93],
+						  [NSNumber numberWithFloat:7.18],
+						  [NSNumber numberWithFloat:6.08],
+						  [NSNumber numberWithFloat:6.75],
+						  [NSNumber numberWithFloat:6.32],
+						  [NSNumber numberWithFloat:4.55],
+						  [NSNumber numberWithFloat:6.96],
+						  [NSNumber numberWithFloat:5.12],
+						  [NSNumber numberWithFloat:4.84],
+						  [NSNumber numberWithFloat:6.32],
+						  
+						  [NSNumber numberWithFloat:4.21],
+						  [NSNumber numberWithFloat:6.08],
+						  [NSNumber numberWithFloat:7.25],
+						  [NSNumber numberWithFloat:4.10],
+						  [NSNumber numberWithFloat:7.13],
+						  [NSNumber numberWithFloat:5.23],
+						  [NSNumber numberWithFloat:5.89],
+						  [NSNumber numberWithFloat:5.75],
+						  [NSNumber numberWithFloat:5.00],
+						  [NSNumber numberWithFloat:6.81],
+						  [NSNumber numberWithFloat:4.18],
+						  [NSNumber numberWithFloat:4.92],
+
+						  [NSNumber numberWithFloat:3.75],
+						  [NSNumber numberWithFloat:5.96],
+						  [NSNumber numberWithFloat:5.60],
+						  [NSNumber numberWithFloat:4.20],
+						  [NSNumber numberWithFloat:6.11],
+						  [NSNumber numberWithFloat:5.35],
+						  [NSNumber numberWithFloat:4.00],
+						  [NSNumber numberWithFloat:4.09],
+						  [NSNumber numberWithFloat:7.72],
+						  [NSNumber numberWithFloat:3.36],
+						  [NSNumber numberWithFloat:7.20],
+						  [NSNumber numberWithFloat:5.23],
+
+						  nil];
 		Runner *r;
 		Leg *l;
 		Van *v;
@@ -44,7 +84,7 @@
 				for (int k = 1; k <= 3; k++) {
 					int legIndex = runnerIndex + (12 * (k-1));
 					//NSLog(@"van %d -- runner %d :: mult: %d -- leg: %d", i, j, runnerIndex, legIndex);
-					l = [self makeLeg:legIndex distance:5.0];
+					l = [self makeLeg:legIndex distance:[[miles objectAtIndex:legIndex-1] floatValue]];
 					l.runner = r;
 				}
 			}
@@ -175,6 +215,84 @@
 - (BOOL) isTiming {
 	return [self appSettings].isTimingValue;
 }
+
+
+- (void) setProjectedShowsCountdown:(BOOL)projectedShowsCountdown {
+	[self appSettings].projectedShowsCountdownValue = projectedShowsCountdown;
+	[self saveContext];
+}
+- (BOOL) projectedShowsCountdown {
+	return [self appSettings].projectedShowsCountdownValue;
+}
+
+
+
+#pragma mark - Race
+- (Race *) race {
+	Race *r;
+	NSArray *race = [self fetchAllEntitiesOfName:@"Race"];
+	if (race.count == 0) {
+		r = (Race *)[self insertEntityWithName:@"Race"];
+	} else {
+		r = (Race *)[race objectAtIndex:0];
+	}
+	return r;
+}
+
+- (BOOL) raceIsFinished {
+	NSArray *allTimes = [self allLegTimes];
+	for (LegTime *l in allTimes) {
+		if (l.endTime == nil) return NO;
+	}
+	return YES;
+}
+
+
+- (NSDate*) calculateTimeToFinishOfLeg:(NSInteger)legNumberFinished projected:(BOOL)projected {
+//	NSLog(@"calculateTimeToFinishOfLeg");
+	NSArray *legs = [self allLegs];
+	NSDate *finish = [self.race.startTime copy];
+//	NSLog(@"start time: %@", finish);
+	Leg *l;
+	// We want to include the legNumberFinished in our calculation, but it's 1-based and the
+	// loop is 0-based, so the i < legNumberFinished is accurate.
+	for (int i = 0; i < legNumberFinished; i++) {
+//		NSLog(@"Loop %d", i);
+//	for (Leg *l in legs) {
+		l = [legs objectAtIndex:i];
+//		NSLog(@"Leg: %@", l);
+		if (projected && l.legTime.endTime) {
+//			NSLog(@"    projected");
+			finish = [finish dateByAddingTimeInterval:[l.legTime.endTime timeIntervalSinceDate:l.legTime.startTime]];
+		} else {
+//			NSLog(@"    scheduled");
+			float secsPerMile = l.projectedPaceValue * 60;
+			NSTimeInterval projectedDuration = secsPerMile * l.distanceValue;
+			finish = [finish dateByAddingTimeInterval:projectedDuration];
+		}
+//		NSLog(@"finish: %@", finish);
+	}
+//	NSLog(@"finish: %@", finish);
+	return finish;
+}
+
+- (NSDate *)calculateFinishTime:(BOOL)projected {
+	return [self calculateTimeToFinishOfLeg:[self allLegs].count projected:projected];
+	///////////////////////////
+	NSArray *legs = [self allLegs];
+	NSDate *finish = [self.race.startTime copy];
+	for (Leg *l in legs) {
+		if (projected && l.legTime.endTime) {
+			finish = [finish dateByAddingTimeInterval:[l.legTime.endTime timeIntervalSinceDate:l.legTime.startTime]];
+		} else {
+			float secsPerMile = l.projectedPaceValue * 60;
+			NSTimeInterval projectedDuration = secsPerMile * l.distanceValue;
+			finish = [finish dateByAddingTimeInterval:projectedDuration];
+		}
+	}
+	return finish;
+}
+
 
 
 @end

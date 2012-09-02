@@ -15,6 +15,7 @@
 
 
 @implementation RTRunnerViewController
+@synthesize totalMilesLabel = _totalMilesLabel;
 
 @synthesize runner = _runner;
 
@@ -38,9 +39,11 @@
 //	NSLog(@"viewDidLoad.  runner? %@", self.runner);
 	self.nameField.text = self.runner.name;
 	self.nameField.delegate = self;
+	
 }
 
 - (void)viewDidUnload {
+    [self setTotalMilesLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -52,7 +55,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
 //	NSLog(@"runner detail will disappear");
-	[self textFieldDidEndEditing:nil];
+	[self textFieldDidEndEditing:self.nameField];
 }
 
 
@@ -66,7 +69,9 @@
 #pragma mark - Name Field
 - (void) textFieldDidEndEditing:(UITextField *)textField {
 //	NSLog(@"textFieldDidEndEditing");
-	self.runner.name = self.nameField.text;
+	if (textField == self.nameField) {
+		self.runner.name = self.nameField.text;
+	}
 	[self.localStore saveContext];
 }
 
@@ -138,8 +143,10 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"yay %@", indexPath);
+	if (indexPath.row == 2) {
+	}
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -148,5 +155,45 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
+#pragma mark - Contacts
+- (IBAction)importFromContactsTap:(id)sender {
+	NSLog(@"import from contacts");
+	ABPeoplePickerNavigationController *contacts = [[ABPeoplePickerNavigationController alloc] init];
+	contacts.peoplePickerDelegate = self;
+	[self presentModalViewController:contacts animated:YES];
+}
+
+- (void) peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker {
+	[self dismissModalViewControllerAnimated:YES];
+}
+
+- (BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+	NSString *firstName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+	NSString *lastName  = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+	NSString *name;
+	if (firstName && lastName) {
+		name = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
+	} else if (firstName) {
+		name = firstName;
+	} else if (lastName) {
+		name = lastName;
+	}
+	
+	NSLog(@"person: %@", name);
+	if (name) {
+		self.nameField.text = name;
+	}
+	[self dismissModalViewControllerAnimated:YES];
+	return YES;
+}
+
+- (BOOL) peoplePickerNavigationController:(ABPeoplePickerNavigationController *)peoplePicker shouldContinueAfterSelectingPerson:(ABRecordRef)person property:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier {
+	[self dismissModalViewControllerAnimated:YES];
+	return NO;
+}
+
+
 
 @end
