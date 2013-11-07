@@ -8,6 +8,19 @@
 
 #import "RTPacePicker.h"
 
+
+
+
+@interface RTPacePicker(Private)
+
+- (RTPace) paceForPaceValue: (float)paceValue;
+
+@end
+
+
+
+
+
 @implementation RTPacePicker
 
 @synthesize paceTime = _paceTime;
@@ -24,6 +37,10 @@
 		self.showsSelectionIndicator = YES;
     }
     return self;
+}
+
+- (NSString *) description {
+	return [NSString stringWithFormat:@"RTPacePicker {paceTime:%@, paceValue:%f}", self.paceTime, self.paceValue];
 }
 
 /*
@@ -116,7 +133,12 @@
 	if (_paceTime != paceTime) {
 		_paceTime = paceTime;
 		NSArray *parts = [paceTime componentsSeparatedByString:@":"];
+//		NSLog(@"parts: %@", parts);
 		float mins = ((NSString *)[parts objectAtIndex:0]).floatValue;
+//		NSLog(@"mins: %f", mins);
+//		NSLog(@"[parts objectAtIndex:1]: %@", [parts objectAtIndex:1]);
+//		NSLog(@"((NSString *)[parts objectAtIndex:1]): %@", ((NSString *)[parts objectAtIndex:1]));
+//		NSLog(@"((NSString *)[parts objectAtIndex:1]).floatValue: %f", ((NSString *)[parts objectAtIndex:1]).floatValue);
 		float secs = ((NSString *)[parts objectAtIndex:1]).floatValue;
 		_paceValue = mins + (secs/60.0);
 		
@@ -130,11 +152,26 @@
 - (void) setPaceValue:(float)paceValue {
 	if (_paceValue != paceValue) {
 		_paceValue = paceValue;
-		int mins = floor(paceValue);
-		int secs = round((paceValue - mins) * 60.0);
-		_paceTime = [NSString stringWithFormat:@"%d:%02d", mins, secs];
-		[self updateDisplayWithMins:mins secs:secs];
+//		int mins = floor(paceValue);
+//		int secs = round((paceValue - mins) * 60.0);
+//		_paceTime = [NSString stringWithFormat:@"%d:%02d", mins, secs];
+		_paceTime = [self paceTimeForValue:paceValue];
+		RTPace pace = [self paceForPaceValue:paceValue];
+		[self updateDisplayWithMins:pace.minutes secs:pace.seconds];
 	}
+}
+
+
+- (NSString *)paceTimeForValue: (float)paceValue {
+	RTPace pace = [self paceForPaceValue:paceValue];
+	return [NSString stringWithFormat:@"%d:%02d", pace.minutes, pace.seconds];
+}
+
+- (RTPace) paceForPaceValue: (float)paceValue {
+	int mins = floor(paceValue);
+	int secs = round((paceValue - mins) * 60.0);
+	RTPace pace = {.minutes = mins, .seconds = secs};
+	return pace;
 }
 
 

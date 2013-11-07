@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Leg.h"
 
 
 @class RTRunnerPassedViewController;
@@ -25,8 +26,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (strong, nonatomic) id<RTRunnerPassedViewControllerDelegate> delegate;
 
+@property (strong, nonatomic) Leg *leg;
+
 - (float) mileage;
 - (IBAction)doneTap:(id)sender;
 - (IBAction)cancelTap:(id)sender;
+- (IBAction)mileageEditChange:(id)sender;
 
 @end

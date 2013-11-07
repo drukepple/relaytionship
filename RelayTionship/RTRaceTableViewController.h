@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *actualFinishClockLabel;
 @property (weak, nonatomic) IBOutlet UILabel *actualFinishTimeLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *nextVanExchangeClockLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nextVanExchangeTimeLabel;
 
 
 @end

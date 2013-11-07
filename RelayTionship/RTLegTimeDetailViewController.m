@@ -65,6 +65,7 @@
     
 	NSString *key = [keys objectAtIndex:indexPath.row];
 	NSString *value;
+	UIColor *textColor;
 	NSTimeInterval secs;
 	Leg *leg = self.leg;
 	LegTime *time = leg.legTime;
@@ -89,13 +90,23 @@
 		case 3:
 			//key = @"Time";
 			secs = [time.endTime timeIntervalSinceDate:time.startTime];
-			value = [LegTime formatSecondsToString:secs];
+			if (secs == 0) {
+				value = @"In Progress";
+				textColor = [UIColor lightGrayColor];
+			} else {
+				value = [LegTime formatSecondsToString:secs];
+			}
 			break;
 			
 		case 4:
 			//key = @"Pace";
 			secs = [time.endTime timeIntervalSinceDate:time.startTime];
-			value = [LegTime formatSecondsToString:secs / leg.distanceValue];
+			if (secs == 0) {
+				value = @"In Progress";
+				textColor = [UIColor lightGrayColor];
+			} else {
+				value = [LegTime formatSecondsToString:secs / leg.distanceValue];
+			}
 			break;
 			
 		default:
@@ -104,6 +115,9 @@
 	
 	cell.textLabel.text = key;
 	cell.detailTextLabel.text = value;
+	if (textColor) {
+		cell.detailTextLabel.textColor = textColor;
+	}
     
     return cell;
 }

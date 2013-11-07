@@ -4,7 +4,6 @@ TODO
 	- view projected race finish
 	- view projected leg start times
 	- Maybe change Legs tab to a nested VC in a "Race" tab, with a "Legs" button to view that VC
-- Leg Pace projection...enter as time.  Picker wheels?
 - Separate Leg table into sections by van.
 - Team Member Details:
 	- Default pace

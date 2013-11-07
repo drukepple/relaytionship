@@ -5,6 +5,7 @@
 
 
 extern const struct RunnerAttributes {
+	__unsafe_unretained NSString *defaultPace;
 	__unsafe_unretained NSString *name;
 	__unsafe_unretained NSString *number;
 } RunnerAttributes;
@@ -23,6 +24,7 @@ extern const struct RunnerFetchedProperties {
 
 
 
+
 @interface RunnerID : NSManagedObjectID {}
 @end
 
@@ -31,6 +33,18 @@ extern const struct RunnerFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (RunnerID*)objectID;
+
+
+
+
+@property (nonatomic, strong) NSNumber* defaultPace;
+
+
+@property float defaultPaceValue;
+- (float)defaultPaceValue;
+- (void)setDefaultPaceValue:(float)value_;
+
+//- (BOOL)validateDefaultPace:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -83,6 +97,15 @@ extern const struct RunnerFetchedProperties {
 @end
 
 @interface _Runner (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveDefaultPace;
+- (void)setPrimitiveDefaultPace:(NSNumber*)value;
+
+- (float)primitiveDefaultPaceValue;
+- (void)setPrimitiveDefaultPaceValue:(float)value_;
+
+
 
 
 - (NSString*)primitiveName;

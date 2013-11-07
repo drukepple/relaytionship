@@ -15,6 +15,7 @@
 @implementation RTRunnerPassedViewController
 @synthesize milesElapsed;
 @synthesize doneButton;
+@synthesize leg;
 @synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -33,11 +34,13 @@
 	fieldBounds.size.height = 60.0;
 	self.milesElapsed.bounds = fieldBounds;
 	// CAN WE GET THE TEXTFIELD TO AUTO FOCUS?
+	[self.milesElapsed becomeFirstResponder];
 }
 
 - (void)viewDidUnload {
 	[self setMilesElapsed:nil];
 	[self setDoneButton:nil];
+	[self setLeg:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -57,6 +60,14 @@
 
 - (IBAction)cancelTap:(id)sender {
 	[self.delegate runnerPassedViewControllerDidCancel:self];
+}
+
+- (IBAction)mileageEditChange:(id)sender {
+	float legDistance = self.leg.distanceValue;
+	NSLog(@"legDistance: %f", legDistance);
+	if (self.mileage > legDistance) {
+		self.milesElapsed.text = [NSString stringWithFormat:@"%.2f", legDistance];
+	}
 }
 
 

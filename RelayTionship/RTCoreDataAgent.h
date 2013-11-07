@@ -30,13 +30,21 @@ enum RTCoreDataAgentAppSettingsTab {
 @property (assign, nonatomic) BOOL isTiming;
 @property (assign, nonatomic) BOOL projectedShowsCountdown;
 
+
+- (NSArray *) allVans;
+
 - (Runner *)runnerByIndexPath:(NSIndexPath *)indexPath;
+- (NSArray *) allRunners;
+- (Runner *) currentRunner;
 
 - (Leg *)legByIndex:(int16_t)index;
 - (NSArray *) allLegs;
 - (NSArray *) allLegTimes;
 - (NSArray *) allCompletedLegs;
 - (LegTime *) makeLegTime;
+- (Leg *) currentLeg;
+
+- (void) reset;
 
 //- (Race *) race;
 @property (readonly) Race *race;

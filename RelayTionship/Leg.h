@@ -2,4 +2,7 @@
 
 @interface Leg : _Leg {}
 // Custom logic goes here.
+
+- (NSTimeInterval) projectedDuration;
+
 @end

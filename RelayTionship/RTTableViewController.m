@@ -108,7 +108,12 @@
 
 #pragma mark - Tabe View Overrides
 - (void) reloadTableData {
-	[self.tableView reloadData];
+	@try {
+//		[self.tableView reloadData];
+	}
+	@catch (NSException *e) {
+		NSLog(@"reload table data excetion: %@", e);
+	}
 }
 
 #pragma mark - Setters/Getters

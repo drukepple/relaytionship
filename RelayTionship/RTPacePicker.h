@@ -11,6 +11,12 @@
 @class RTPacePicker;
 
 
+struct RTPace {
+	int minutes;
+	int seconds;
+};
+typedef struct RTPace RTPace;
+
 @protocol RTPacePickerDelegate <NSObject>
 
 - (void) pacePicker:(RTPacePicker *)pacePicker didSelectPace:(float)paceValue;
@@ -24,5 +30,7 @@
 @property (strong, nonatomic) NSString *paceTime;
 @property (assign, nonatomic) float paceValue;
 @property (assign, nonatomic) id<RTPacePickerDelegate> paceDelegate;
+
+- (NSString *)paceTimeForValue: (float)value;
 
 @end

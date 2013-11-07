@@ -10,11 +10,15 @@
 #import <AddressBookUI/AddressBookUI.h>
 #import "RTTableViewController.h"
 #import "Runner.h"
+#import "RTPacePicker.h"
 
-@interface RTRunnerViewController : RTTableViewController <UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate>
+@interface RTRunnerViewController : RTTableViewController <UITextFieldDelegate, ABPeoplePickerNavigationControllerDelegate, RTPacePickerDelegate>
 
 @property (strong, nonatomic) Runner *runner;
+@property (strong, nonatomic) NSArray *legs;
+
 - (IBAction)importFromContactsTap:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *totalMilesLabel;
+@property (weak, nonatomic) IBOutlet UITextField *nameField;
 
 @end

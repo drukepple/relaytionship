@@ -52,6 +52,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+//	NSLog(@"viewWillAppear");
 	[super viewWillAppear:animated];
 	[self reloadTableData];
 }
@@ -65,13 +66,23 @@
 
 
 #pragma mark - Table view data source
-
+- (NSInteger) numberOfRunnersPerVan {
+	return [self.localStore allRunners].count / [self.localStore allVans].count;
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+//	int runnersPerVan = [self.localStore allRunners].count / [self.localStore allVans].count;
+    return self.legs.count / [self numberOfRunnersPerVan];
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	int van = section % [self.localStore allVans].count + 1;
+	//# (Van num-1 % vans.count) + 1
+	return [NSString stringWithFormat:@"Van %d", van];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.legs.count;
+//    return self.legs.count;
+//	return [self.localStore allRunners].count / [self.localStore allVans].count;
+	return [self numberOfRunnersPerVan];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,7 +91,7 @@
     RTLegTableCell *legCell = (RTLegTableCell *)cell;
 	
     // Configure the cell...
-	Leg *l = [self.localStore legByIndex:indexPath.row];
+	Leg *l = [self.localStore legByIndex:indexPath.row + (indexPath.section * [self numberOfRunnersPerVan])];
 	NSString *distanceLabel =  [distanceFormatter stringFromNumber:l.distance];
     //cell.textLabel.text = [NSString stringWithFormat:@"Leg %d - %@m", l.numberValue, distanceLabel];
 	//cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %.02f", l.runner.name, l.projectedPaceValue];
@@ -170,7 +181,12 @@
 	if ([segId isEqualToString:@"legDetails"]) {
 		RTLegDetailsViewController * vc = (RTLegDetailsViewController *)segue.destinationViewController;
 //		NSLog(@"vc: %@", vc);
-		vc.leg = [self.localStore legByIndex:self.tableView.indexPathForSelectedRow.row];
+		NSUInteger rowIndex = self.tableView.indexPathForSelectedRow.row;
+		NSUInteger sectionIndex = self.tableView.indexPathForSelectedRow.section;
+		NSUInteger legIndex = rowIndex + (sectionIndex * [self numberOfRunnersPerVan]);
+		NSLog(@"rowIndex:     %d", rowIndex);
+		NSLog(@"sectionIndex: %d", sectionIndex);
+		vc.leg = [self.localStore legByIndex:legIndex];
 		vc.localStore = self.localStore;
 	}
 }

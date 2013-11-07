@@ -4,6 +4,7 @@
 #import "_Runner.h"
 
 const struct RunnerAttributes RunnerAttributes = {
+	.defaultPace = @"defaultPace",
 	.name = @"name",
 	.number = @"number",
 };
@@ -42,6 +43,10 @@ const struct RunnerFetchedProperties RunnerFetchedProperties = {
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"defaultPaceValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"defaultPace"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"numberValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"number"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -49,6 +54,32 @@ const struct RunnerFetchedProperties RunnerFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic defaultPace;
+
+
+
+- (float)defaultPaceValue {
+	NSNumber *result = [self defaultPace];
+	return [result floatValue];
+}
+
+- (void)setDefaultPaceValue:(float)value_ {
+	[self setDefaultPace:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveDefaultPaceValue {
+	NSNumber *result = [self primitiveDefaultPace];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveDefaultPaceValue:(float)value_ {
+	[self setPrimitiveDefaultPace:[NSNumber numberWithFloat:value_]];
+}
+
 
 
 

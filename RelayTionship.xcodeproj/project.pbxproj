@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		713F45FD15F2445E00D583D1 /* RTUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F45FC15F2445E00D583D1 /* RTUtil.m */; };
 		713F460115F3171D00D583D1 /* RTDurationPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F460015F3171D00D583D1 /* RTDurationPicker.m */; };
+		713F460A15F3E7B200D583D1 /* RTTeamInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F460915F3E7B200D583D1 /* RTTeamInputCell.m */; };
+		713F460D15F3E82400D583D1 /* RTTeamValueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F460C15F3E82400D583D1 /* RTTeamValueCell.m */; };
+		713F461015F3E83C00D583D1 /* RTRunnerLegCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F460F15F3E83C00D583D1 /* RTRunnerLegCell.m */; };
+		713F461315F3E96E00D583D1 /* RTRunnerButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 713F461215F3E96E00D583D1 /* RTRunnerButtonCell.m */; };
 		715E70BF15E3033F00E554B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70BE15E3033F00E554B1 /* UIKit.framework */; };
 		715E70C115E3033F00E554B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70C015E3033F00E554B1 /* Foundation.framework */; };
 		715E70C315E3033F00E554B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715E70C215E3033F00E554B1 /* CoreGraphics.framework */; };
@@ -63,6 +67,7 @@
 		715ED81615E7F73C00CF4C22 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 715ED81515E7F73C00CF4C22 /* MessageUI.framework */; };
 		715ED81915EDC63B00CF4C22 /* RTLegTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED81815EDC63B00CF4C22 /* RTLegTableCell.m */; };
 		715ED81C15EE598200CF4C22 /* RTPacePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 715ED81B15EE598100CF4C22 /* RTPacePicker.m */; };
+		717B4C001813054000C6F023 /* RTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 717B4BFF1813054000C6F023 /* RTTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +75,14 @@
 		713F45FC15F2445E00D583D1 /* RTUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTUtil.m; sourceTree = "<group>"; };
 		713F45FF15F3171D00D583D1 /* RTDurationPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDurationPicker.h; sourceTree = "<group>"; };
 		713F460015F3171D00D583D1 /* RTDurationPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDurationPicker.m; sourceTree = "<group>"; };
+		713F460815F3E7B200D583D1 /* RTTeamInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTeamInputCell.h; sourceTree = "<group>"; };
+		713F460915F3E7B200D583D1 /* RTTeamInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTeamInputCell.m; sourceTree = "<group>"; };
+		713F460B15F3E82400D583D1 /* RTTeamValueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTeamValueCell.h; sourceTree = "<group>"; };
+		713F460C15F3E82400D583D1 /* RTTeamValueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTeamValueCell.m; sourceTree = "<group>"; };
+		713F460E15F3E83C00D583D1 /* RTRunnerLegCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRunnerLegCell.h; sourceTree = "<group>"; };
+		713F460F15F3E83C00D583D1 /* RTRunnerLegCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRunnerLegCell.m; sourceTree = "<group>"; };
+		713F461115F3E96E00D583D1 /* RTRunnerButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTRunnerButtonCell.h; sourceTree = "<group>"; };
+		713F461215F3E96E00D583D1 /* RTRunnerButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTRunnerButtonCell.m; sourceTree = "<group>"; };
 		715E70BA15E3033F00E554B1 /* RelayTionship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelayTionship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		715E70BE15E3033F00E554B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		715E70C015E3033F00E554B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +171,8 @@
 		715ED81815EDC63B00CF4C22 /* RTLegTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLegTableCell.m; sourceTree = "<group>"; };
 		715ED81A15EE598100CF4C22 /* RTPacePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPacePicker.h; sourceTree = "<group>"; };
 		715ED81B15EE598100CF4C22 /* RTPacePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTPacePicker.m; sourceTree = "<group>"; };
+		717B4BFE1813054000C6F023 /* RTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTTextField.h; sourceTree = "<group>"; };
+		717B4BFF1813054000C6F023 /* RTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +193,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		713F461415F3E9AD00D583D1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				713F460815F3E7B200D583D1 /* RTTeamInputCell.h */,
+				713F460915F3E7B200D583D1 /* RTTeamInputCell.m */,
+				713F460B15F3E82400D583D1 /* RTTeamValueCell.h */,
+				713F460C15F3E82400D583D1 /* RTTeamValueCell.m */,
+				713F460E15F3E83C00D583D1 /* RTRunnerLegCell.h */,
+				713F460F15F3E83C00D583D1 /* RTRunnerLegCell.m */,
+				713F461115F3E96E00D583D1 /* RTRunnerButtonCell.h */,
+				713F461215F3E96E00D583D1 /* RTRunnerButtonCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		715E70AF15E3033F00E554B1 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +263,8 @@
 				713F460015F3171D00D583D1 /* RTDurationPicker.m */,
 				715E70DD15E3034000E554B1 /* RTSecondViewController.h */,
 				715E70DE15E3034000E554B1 /* RTSecondViewController.m */,
+				717B4BFE1813054000C6F023 /* RTTextField.h */,
+				717B4BFF1813054000C6F023 /* RTTextField.m */,
 				715E70C515E3034000E554B1 /* Supporting Files */,
 				715ED80A15E7549300CF4C22 /* notes.txt */,
 			);
@@ -333,6 +365,7 @@
 				715E712F15E3065F00E554B1 /* RTTeamRosterViewController.m */,
 				715E714015E3CE5700E554B1 /* RTRunnerViewController.h */,
 				715E714115E3CE5700E554B1 /* RTRunnerViewController.m */,
+				713F461415F3E9AD00D583D1 /* Cells */,
 			);
 			name = "Team Roster Tab";
 			sourceTree = "<group>";
@@ -449,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				717B4C001813054000C6F023 /* RTTextField.m in Sources */,
 				715E70CB15E3034000E554B1 /* main.m in Sources */,
 				715E70DF15E3034000E554B1 /* RTSecondViewController.m in Sources */,
 				715E710015E3041100E554B1 /* RTCoreDataAgent.m in Sources */,
@@ -483,6 +517,10 @@
 				715ED81C15EE598200CF4C22 /* RTPacePicker.m in Sources */,
 				713F45FD15F2445E00D583D1 /* RTUtil.m in Sources */,
 				713F460115F3171D00D583D1 /* RTDurationPicker.m in Sources */,
+				713F460A15F3E7B200D583D1 /* RTTeamInputCell.m in Sources */,
+				713F460D15F3E82400D583D1 /* RTTeamValueCell.m in Sources */,
+				713F461015F3E83C00D583D1 /* RTRunnerLegCell.m in Sources */,
+				713F461315F3E96E00D583D1 /* RTRunnerButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,10 +608,12 @@
 		715E70E715E3034000E554B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dru Kepple (982S6Q9324)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RelayTionship/RelayTionship-Prefix.pch";
 				INFOPLIST_FILE = "RelayTionship/RelayTionship-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -581,10 +621,12 @@
 		715E70E815E3034000E554B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dru Kepple (982S6Q9324)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RelayTionship/RelayTionship-Prefix.pch";
 				INFOPLIST_FILE = "RelayTionship/RelayTionship-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

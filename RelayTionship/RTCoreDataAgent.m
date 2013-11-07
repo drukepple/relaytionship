@@ -28,44 +28,45 @@
 - (void) initializeDefaultData {
 	// If there is no data, pre-populate wiht 12 runners and 36 legs.
 	if ([self fetchAllEntitiesOfName:@"Runner"].count == 0) {
-		NSArray *miles = [NSArray arrayWithObjects:[NSNumber numberWithFloat:5.64],
-						  [NSNumber numberWithFloat:5.67],
-						  [NSNumber numberWithFloat:3.93],
-						  [NSNumber numberWithFloat:7.18],
-						  [NSNumber numberWithFloat:6.08],
-						  [NSNumber numberWithFloat:6.75],
-						  [NSNumber numberWithFloat:6.32],
-						  [NSNumber numberWithFloat:4.55],
-						  [NSNumber numberWithFloat:6.96],
-						  [NSNumber numberWithFloat:5.12],
-						  [NSNumber numberWithFloat:4.84],
-						  [NSNumber numberWithFloat:6.32],
+		NSArray *miles = [NSArray arrayWithObjects:
+						  [NSNumber numberWithFloat:7.1],
+						  [NSNumber numberWithFloat:4.8],
+						  [NSNumber numberWithFloat:5.5],
+						  [NSNumber numberWithFloat:4.5],
+						  [NSNumber numberWithFloat:9.4],
+						  [NSNumber numberWithFloat:3.6],
+						  [NSNumber numberWithFloat:5.5],
+						  [NSNumber numberWithFloat:6.6],
+						  [NSNumber numberWithFloat:2.7],
+						  [NSNumber numberWithFloat:2.4],
+						  [NSNumber numberWithFloat:5.4],
+						  [NSNumber numberWithFloat:2.4],
 						  
-						  [NSNumber numberWithFloat:4.21],
-						  [NSNumber numberWithFloat:6.08],
-						  [NSNumber numberWithFloat:7.25],
-						  [NSNumber numberWithFloat:4.10],
-						  [NSNumber numberWithFloat:7.13],
-						  [NSNumber numberWithFloat:5.23],
-						  [NSNumber numberWithFloat:5.89],
-						  [NSNumber numberWithFloat:5.75],
-						  [NSNumber numberWithFloat:5.00],
-						  [NSNumber numberWithFloat:6.81],
-						  [NSNumber numberWithFloat:4.18],
-						  [NSNumber numberWithFloat:4.92],
+						  [NSNumber numberWithFloat:6.2],
+						  [NSNumber numberWithFloat:2.4],
+						  [NSNumber numberWithFloat:2.2],
+						  [NSNumber numberWithFloat:2.1],
+						  [NSNumber numberWithFloat:3.2],
+						  [NSNumber numberWithFloat:10.0],
+						  [NSNumber numberWithFloat:5.8],
+						  [NSNumber numberWithFloat:3.1],
+						  [NSNumber numberWithFloat:7.3],
+						  [NSNumber numberWithFloat:8.5],
+						  [NSNumber numberWithFloat:3.9],
+						  [NSNumber numberWithFloat:3.1],
 
-						  [NSNumber numberWithFloat:3.75],
-						  [NSNumber numberWithFloat:5.96],
-						  [NSNumber numberWithFloat:5.60],
-						  [NSNumber numberWithFloat:4.20],
-						  [NSNumber numberWithFloat:6.11],
-						  [NSNumber numberWithFloat:5.35],
-						  [NSNumber numberWithFloat:4.00],
-						  [NSNumber numberWithFloat:4.09],
-						  [NSNumber numberWithFloat:7.72],
-						  [NSNumber numberWithFloat:3.36],
-						  [NSNumber numberWithFloat:7.20],
-						  [NSNumber numberWithFloat:5.23],
+						  [NSNumber numberWithFloat:4.8],
+						  [NSNumber numberWithFloat:3.4],
+						  [NSNumber numberWithFloat:4.0],
+						  [NSNumber numberWithFloat:5.1],
+						  [NSNumber numberWithFloat:6.5],
+						  [NSNumber numberWithFloat:3.7],
+						  [NSNumber numberWithFloat:5.1],
+						  [NSNumber numberWithFloat:7.6],
+						  [NSNumber numberWithFloat:3.0],
+						  [NSNumber numberWithFloat:6.7],
+						  [NSNumber numberWithFloat:7.7],
+						  [NSNumber numberWithFloat:7.3],
 
 						  nil];
 		Runner *r;
@@ -79,6 +80,7 @@
 				int runnerIndex = ((i-1)*6)+j;
 				r = (Runner *)[self makeRunner:[NSString stringWithFormat:@"Runner %d", runnerIndex]];
 				r.numberValue = runnerIndex;
+//				r.defaultPaceValue = 8.0;
 				r.van = v;
 				
 				for (int k = 1; k <= 3; k++) {
@@ -152,6 +154,11 @@
 
 #pragma mark - Retrieval
 
+#pragma mark Van
+- (NSArray *) allVans {
+	return [self fetchAllEntitiesOfName:@"Van" sortedOn:@"number" ascending:YES];
+}
+
 #pragma mark Runner
 - (Runner *)runnerByIndexPath:(NSIndexPath *)indexPath {
 	int16_t runnerNumber = ((indexPath.section+0) * 6) + (indexPath.row+1);
@@ -159,6 +166,16 @@
 	Runner *r = (Runner *)[self fetchFirstEntityOfName:@"Runner" withPredicate:@"number = %d", runnerNumber];
 	return r;
 }
+
+- (NSArray *) allRunners {
+	return [self fetchAllEntitiesOfName:@"Runner" sortedOn:@"number" ascending:YES];
+}
+
+- (Runner *) currentRunner {
+//	NSLog(@"current Leg: %@", (Leg*)[self currentLeg]);
+	return ((Leg*)[self currentLeg]).runner;
+}
+
 //- (Runner *r)runnerByIndexPath:(NSIndexPath *)indexPath {
 //	Runner *r = (Runner *)[self fetchFirstEntityOfName:@"Runner" withPredicate:@"number = %d AND van.number = %d", indexPath.row+1 + (indexPath.section * 6), indexPath.section+1];
 //
@@ -184,6 +201,17 @@
 	}
 	return [_allCompletedLegs copy];
 //	return [self fetchEntitiesOfName:@"Leg" withPredicate:@"legTime.endTime != nil"];
+}
+
+- (Leg *) currentLeg {
+	int numLegTimes = [[self allLegTimes] count];
+//	NSLog(@"leg times count: %d", numLegTimes);
+	if (numLegTimes <= 0) {
+		return nil;
+	} else {
+		// Subtract one because we got the count, which is 1-based, and using it for the index, which is 0-based.
+		return [[self allLegs] objectAtIndex:numLegTimes-1];
+	}
 }
 
 
@@ -241,6 +269,9 @@
 
 - (BOOL) raceIsFinished {
 	NSArray *allTimes = [self allLegTimes];
+	if (allTimes.count == 0) {
+		return NO;
+	}
 	for (LegTime *l in allTimes) {
 		if (l.endTime == nil) return NO;
 	}
@@ -258,7 +289,6 @@
 	// loop is 0-based, so the i < legNumberFinished is accurate.
 	for (int i = 0; i < legNumberFinished; i++) {
 //		NSLog(@"Loop %d", i);
-//	for (Leg *l in legs) {
 		l = [legs objectAtIndex:i];
 //		NSLog(@"Leg: %@", l);
 		if (projected && l.legTime.endTime) {
@@ -293,6 +323,20 @@
 	return finish;
 }
 
+
+
+
+
+#pragma mark - Data Modification
+- (void) reset {
+	NSArray *legs = [self allLegs];
+	for (Leg *leg in legs) {
+		if (leg.legTime) {
+			[self deleteEntity:leg.legTime];
+		}
+	}
+	self.isTiming = NO;
+}
 
 
 @end

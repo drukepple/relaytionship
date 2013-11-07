@@ -25,6 +25,7 @@
         <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Runner" representedClassName="Runner" syncable="YES">
+        <attribute name="defaultPace" attributeType="Float" minValueString="1" maxValueString="25" defaultValueString="8" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="legs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Leg" inverseName="runner" inverseEntity="Leg" syncable="YES"/>
@@ -38,8 +39,8 @@
         <element name="AppSettings" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Leg" positionX="160" positionY="192" width="128" height="105"/>
         <element name="LegTime" positionX="160" positionY="192" width="128" height="90"/>
-        <element name="Runner" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Van" positionX="160" positionY="192" width="128" height="75"/>
         <element name="Race" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Runner" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Van" positionX="160" positionY="192" width="128" height="75"/>
     </elements>
 </model>

@@ -20,6 +20,7 @@
 - (void) updateProjectedTimeText;
 - (void) startStopwatch;
 - (void) stopStopwatch;
+- (void) updateProjectedTimeTextWithEnd:(NSDate *)projectedEnd;
 @end
 
 static NSString *legButtonStartText = @"Start";
@@ -83,6 +84,8 @@ static NSString *legButtonStopText  = @"Stop";
 		NSLog(@"    isTiming");
 		[self startStopwatch];
 	}
+	[self updateLegButtonText];
+
 }
 
 
@@ -179,21 +182,10 @@ static NSString *legButtonStopText  = @"Stop";
 	LegTime *currentTime = [legTimes lastObject];
 	if (currentTime.mileageForProjectionValue > 0) {
 		NSDate *projectedEnd = currentTime.projectedEndTime;
-		if (self.localStore.projectedShowsCountdown) {
-			NSTimeInterval projectedTime = [projectedEnd timeIntervalSinceNow];
-			self.projectedTimeLabel.text = [LegTime formatSecondsToString:projectedTime];
-		} else {
-//			if (clockFormatter == nil) {
-//				clockFormatter = [[NSDateFormatter alloc] init];
-//				NSLocale *enUSPOSIXLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-//				[clockFormatter setLocale:enUSPOSIXLocale];
-//				clockFormatter.AMSymbol = @"am";
-//				clockFormatter.PMSymbol = @"pm";
-//				[clockFormatter setDateFormat:@"h:mma"];
-//			}
-			NSDateFormatter *clockFormatter = [RTUtil clockFormatter];
-			self.projectedTimeLabel.text = [clockFormatter stringFromDate:projectedEnd];
-		}
+		[self updateProjectedTimeTextWithEnd:projectedEnd];
+	} else if (currentTime.leg.projectedPaceValue > 0) {
+		NSDate *projectedEnd = [self.localStore calculateTimeToFinishOfLeg:currentTime.leg.numberValue projected:YES];
+		[self updateProjectedTimeTextWithEnd:projectedEnd];
 	} else {
 		self.projectedTimeLabel.text = @"--:--";
 		
@@ -202,9 +194,20 @@ static NSString *legButtonStopText  = @"Stop";
 	}
 }
 
+- (void) updateProjectedTimeTextWithEnd:(NSDate *)projectedEnd {
+	if (self.localStore.projectedShowsCountdown) {
+		NSTimeInterval projectedTime = [projectedEnd timeIntervalSinceNow];
+		self.projectedTimeLabel.text = [LegTime formatSecondsToString:projectedTime];
+	} else {
+		NSDateFormatter *clockFormatter = [RTUtil clockFormatter];
+		self.projectedTimeLabel.text = [clockFormatter stringFromDate:projectedEnd];
+	}
+}
+
 - (void) doStart {
 	[self.legButton setTitle:legButtonLegText forState:UIControlStateNormal];
 	self.localStore.isTiming = YES;
+	self.localStore.race.startTime = [NSDate date];
 	[self startStopwatch];
 	/*LegTime *l = */[self.localStore makeLegTime];
 	[self reloadTableData];
@@ -262,10 +265,10 @@ static NSString *legButtonStopText  = @"Stop";
 - (IBAction)projectedTimeTap:(UIButton *)sender {
 	sender.selected = self.localStore.projectedShowsCountdown;
 	if (sender.selected) {
-		NSLog(@"selected");
+//		NSLog(@"selected");
 		self.localStore.projectedShowsCountdown = NO;
 	} else {
-		NSLog(@"normal");
+//		NSLog(@"normal");
 		self.localStore.projectedShowsCountdown = YES;
 	}
 	[self updateProjectedTimeText];
@@ -283,6 +286,7 @@ static NSString *legButtonStopText  = @"Stop";
 	} else if ([segId isEqualToString:@"runnerPassedModal"]) {
 		timeRunnerPassed = [NSDate date];
 		RTRunnerPassedViewController *vc = (RTRunnerPassedViewController *)segue.destinationViewController;
+		vc.leg = [[self.localStore allLegs] lastObject];
 		vc.delegate = self;
 	}
 }
